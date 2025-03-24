@@ -3871,6 +3871,20 @@ input, select, textarea {
 
 		}
 
+.logo-row {
+	display: flex;       
+	justify-content: center; 
+	align-items: center; 
+	gap: 1rem;          
+	margin-bottom: 1rem; 
+	}
+
+.logo-row img {
+	height: 40px; 
+}
+
+
+
 /* Intro */
 
 	#intro {
