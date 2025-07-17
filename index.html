@@ -41,32 +41,24 @@
 			"medicalSpecialty": "Allergy & Immunology",
 			"description": "Consulta de alergia e inmunología pediátrica en Puebla. Atención especializada en pruebas cutáneas y tratamientos para alergias en niños y adultos."
 			}
-		</script>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PMZBG68KYS">
-		</script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+		</script>			
 
-			gtag('config', 'G-PMZBG68KYS');
-		</script>
 		<script>
-			function gtag_report_conversion(url) {
+		function gtagSendEvent(url) {
 			var callback = function () {
-				if (typeof(url) != 'undefined') {
-				window.location.href = url;
-				}
-			};
-			gtag('event', 'conversion', {
-				'send_to': 'AW-16940851986/7WHgCOPzvK8aEJLGg44_',
-				'event_callback': callback
-			});
-			setTimeout(callback, 600);
-			return false;
+			if (typeof url === 'string') {
+				window.location = url;
 			}
-			</script>
+			};
+			gtag('event', 'conversion_event_contact', {
+			'event_callback': callback,
+			'event_timeout': 2000,
+			// <event_parameters>
+			});
+			return false;
+		}
+		</script>
+
 	
 	</head>
 	<body class="is-preload">
@@ -255,15 +247,16 @@
 								</li>
 								<li>
 									<h3>WhatsApp</h3>
-									<a href="https://wa.me/2227291799" target="_blank">
+									<a href="https://wa.me/2227291799" target="_blank"
+									onclick="return gtagSendEvent('https://wa.me/2227291799');">
 										<img src="images/WhatsApp_icon.png" alt="WhatsApp" width="45">
 									</a>
 								</li>
 								<li>
 									<h3>Teléfonos</h3>
 									<span>
-										<a href="tel:2227291799">Celular: 2227291799</a><br>
-										<a href="tel:2222646580">Consultorio: (222)2646580</a>																				
+										<a href="tel:2227291799" onclick="return gtagSendEvent('tel:2227291799');">Celular: 2227291799</a><br>
+										<a href="tel:2222646580" onclick="return gtagSendEvent('tel:2222646580');">Consultorio: (222)2646580</a>																				
 									</span>
 								</li>
 								<li>
