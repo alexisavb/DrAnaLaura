@@ -53,16 +53,16 @@
 
 		<script>
 			function gtag_report_conversion(url) {
-			var callback = function () {
-				if (typeof(url) != 'undefined') {
-				window.location = url;
-				}
-			};
-			gtag('event', 'conversion', {
-				'send_to': 'AW-16940851986/fpSuCMO2_YobEJLGg44_',
-				'event_callback': callback
-			});
-			return false;
+				var callback = function () {
+					if (typeof(url) != 'undefined') {
+					window.location = url;
+					}
+				};
+				gtag('event', 'conversion', {
+					'send_to': 'AW-16940851986/fpSuCMO2_YobEJLGg44_',
+					'event_callback': callback
+				});
+				return (typeof url !== 'undefined' && url);
 			}
 		</script>
 
@@ -237,15 +237,15 @@
 								<li>
 									<h3>WhatsApp</h3>
 									<a href="https://wa.me/2227291799" target="_blank"
-									onclick="return gtag_report_conversion();">
+									onclick="gtag_report_conversion();">
 										<img src="images/WhatsApp_icon.png" alt="WhatsApp" width="45">
 									</a>
 								</li>
 								<li>
 									<h3>Teléfonos</h3>
 									<span>
-										<a href="tel:2227291799" onclick="return gtag_report_conversion();">Celular: 2227291799</a><br>
-										<a href="tel:2222646580" onclick="return gtag_report_conversion();">Consultorio: (222)2646580</a>																				
+										<a href="tel:2227291799" onclick="gtag_report_conversion();">Celular: 2227291799</a><br>
+										<a href="tel:2222646580" onclick="gtag_report_conversion();">Consultorio: (222)2646580</a>																				
 									</span>
 								</li>
 								<li>
