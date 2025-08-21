@@ -42,7 +42,7 @@
 			"description": "Consulta de alergia e inmunología pediátrica en Puebla. Atención especializada en pruebas cutáneas y tratamientos para alergias en niños y adultos."
 			}
 		</script>		
-		<!-- Google tag (gtag.js) -->
+		
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PMZBG68KYS"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
@@ -52,20 +52,20 @@
 		</script>	
 
 		<script>
-		function gtagSendEvent(url) {
+			function gtag_report_conversion(url) {
 			var callback = function () {
-			if (typeof url === 'string') {
+				if (typeof(url) != 'undefined') {
 				window.location = url;
-			}
+				}
 			};
-			gtag('event', 'conversion_event_contact', {
-			'event_callback': callback,
-			'event_timeout': 2000,
-			// <event_parameters>
+			gtag('event', 'conversion', {
+				'send_to': 'AW-16940851986/fpSuCMO2_YobEJLGg44_',
+				'event_callback': callback
 			});
 			return false;
-		}
+			}
 		</script>
+
 
 	
 	</head>
@@ -237,15 +237,15 @@
 								<li>
 									<h3>WhatsApp</h3>
 									<a href="https://wa.me/2227291799" target="_blank"
-									onclick="return gtagSendEvent('https://wa.me/2227291799');">
+									onclick="return gtag_report_conversion();">
 										<img src="images/WhatsApp_icon.png" alt="WhatsApp" width="45">
 									</a>
 								</li>
 								<li>
 									<h3>Teléfonos</h3>
 									<span>
-										<a href="tel:2227291799" onclick="return gtagSendEvent('tel:2227291799');">Celular: 2227291799</a><br>
-										<a href="tel:2222646580" onclick="return gtagSendEvent('tel:2222646580');">Consultorio: (222)2646580</a>																				
+										<a href="tel:2227291799" onclick="return gtag_report_conversion();">Celular: 2227291799</a><br>
+										<a href="tel:2222646580" onclick="return gtag_report_conversion();">Consultorio: (222)2646580</a>																				
 									</span>
 								</li>
 								<li>
