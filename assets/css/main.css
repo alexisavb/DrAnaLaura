@@ -1609,3 +1609,39 @@ body {
 			}
 
 		}
+
+/* Botón flotante general */
+.float-btn {
+	position: fixed;
+	width: 65px;
+	height: 65px;
+	bottom: 20px;
+	right: 20px;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 28px;
+	box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* WhatsApp */
+.whatsapp {
+	background-color: #25d366;
+}
+.whatsapp:hover {
+	background-color: #20b358;
+}
+
+/* Teléfono */
+.phone {
+	background-color: #0a84ff;
+	bottom: 90px; /* un poco más arriba que WhatsApp */
+}
+.phone:hover {
+	background-color: #006edc;
+}
