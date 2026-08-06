@@ -320,12 +320,14 @@ a:focus-visible {
 	border-radius: var(--radius-sm);
 	font-weight: 600;
 	color: var(--fg-bold);
+	white-space: nowrap;
 }
 #primary-nav a:hover,
 #primary-nav a.active { background: rgba(255, 255, 255, 0.08); color: var(--accent3-light); }
 
 @media (min-width: 60em) {
 	.header-cta { display: flex; align-items: center; gap: 0.5em; }
+	.brand-name { white-space: nowrap; }
 	.brand-name br { display: none; }
 
 	#nav-check, #nav-toggle { display: none; }
@@ -340,7 +342,18 @@ a:focus-visible {
 		padding: 0;
 		margin-right: 0.5em;
 	}
-	#primary-nav ul { flex-direction: row; gap: 0.25em; }
+	/* Seis enlaces, no cuatro: menos padding por link para que quepan sin
+	   apretar el nombre de la doctora contra la izquierda. */
+	#primary-nav ul { flex-direction: row; gap: 0; }
+	#primary-nav a { padding: 0.5em 0.65em; font-size: 0.95em; }
+}
+/* Entre 60 y 68em (el header aún no llega al ancho máximo del contenedor) los
+   seis enlaces + el número de teléfono en texto no caben sin encimarse con el
+   nombre. El teléfono ya tiene aria-label, así que el texto es redundante:
+   se oculta y queda solo el ícono; WhatsApp conserva su etiqueta porque es el
+   CTA principal. */
+@media (min-width: 60em) and (max-width: 67.99em) {
+	.header-cta-link:not(.whatsapp) span { display: none; }
 }
 
 /* ---------- Floating conversion buttons (mobile) ---------- */
@@ -840,6 +853,36 @@ a:focus-visible {
 	.gallery-nav { width: 3.1em; height: 3.1em; }
 	.gallery-prev { left: -0.4em; }
 	.gallery-next { right: -0.4em; }
+}
+
+/* ---------- Testimonios ---------- */
+.testimonials-grid {
+	margin-top: var(--space-md);
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2.5em;
+}
+.testimonial { padding-top: 1.5em; border-top: 1px solid var(--border); }
+.testimonial-stars { display: flex; gap: 0.2em; color: var(--accent-green-light); margin-bottom: 0.85em; }
+.testimonial-stars .icon { width: 1.05em; height: 1.05em; }
+/* La cita en serif, como los títulos: es la pieza de contenido que más se
+   beneficia de un trazo editorial en vez de la sans utilitaria del cuerpo. */
+.testimonial blockquote {
+	margin: 0 0 1em;
+	font-family: var(--font-display);
+	font-size: 1.15em;
+	font-style: italic;
+	line-height: 1.5;
+	color: var(--fg-bold);
+}
+.testimonial footer { font-size: 0.9em; color: var(--fg-light); }
+.testimonial cite { font-style: normal; font-weight: 600; color: var(--fg-bold); }
+.testimonial-source { margin-left: 0.4em; }
+
+.testimonials-cta { margin-top: var(--space-lg); }
+
+@media (min-width: 40em) {
+	.testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 2em; }
 }
 
 /* ---------- Contacto ----------
