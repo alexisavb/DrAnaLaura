@@ -1,24 +1,22 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 	<head>
-		<title>Dra. Ana Laura Paz García - Alergóloga Pediátrica en Puebla</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Dra. Ana Laura Paz García - Alergóloga Pediátrica en Puebla</title>
 		<meta name="description" content="Consulta especializada en alergia e inmunología pediátrica en Puebla. La Dra. Ana Laura Paz García ofrece diagnóstico y tratamiento en pruebas cutáneas, alergias y más." />
 		<meta name="keywords" content="alergia, pruebas cutáneas, alergólogo pediátrico, tratamiento alergias, inmunología, consulta alergia, vacuna alergia, diagnóstico alergias infantiles, tratamiento alergias" />
-		
+		<link rel="canonical" href="https://www.draanalau.com/" />
+
 		<!-- Open Graph -->
 		<meta property="og:title" content="Dra. Ana Laura Paz García - Alergóloga Pediátrica en Puebla" />
 		<meta property="og:description" content="Consulta especializada en alergia e inmunología pediátrica en Puebla. Agenda tu cita hoy." />
-		<meta property="og:image" content="https://www.draanalau.com/images/logo.jpeg" />
+		<meta property="og:image" content="https://www.draanalau.com/images/logo-og.jpg" />
 		<meta property="og:url" content="https://www.draanalau.com" />
 		<meta property="og:type" content="website" />
 
+		<link rel="icon" href="images/favicon.png" type="image/png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="shortcut icon" href="images/logo.jpeg">
-		<noscript>
-			<link rel="stylesheet" href="assets/css/noscript.css" />
-		</noscript>
 
 		<!-- Structured Data para SEO Local -->
 		<script type="application/ld+json">
@@ -26,7 +24,7 @@
 			"@context": "http://schema.org",
 			"@type": "Physician",
 			"name": "Dra. Ana Laura Paz García",
-			"image": "https://www.draanalau.com/images/logo.jpeg",
+			"image": "https://www.draanalau.com/images/logo-og.jpg",
 			"telephone": "(222)2646580",
 			"email": "dra.analau.alergo@gmail.com",
 			"address": {
@@ -39,10 +37,528 @@
 			"url": "https://www.draanalau.com",
 			"areaServed": "Puebla, México",
 			"medicalSpecialty": "Allergy & Immunology",
-			"description": "Consulta de alergia e inmunología pediátrica en Puebla. Atención especializada en pruebas cutáneas y tratamientos para alergias en niños y adultos."
+			"description": "Consulta de alergia e inmunología pediátrica en Puebla. Atención especializada en pruebas cutáneas y tratamientos para alergias en niños y adultos.",
+			"openingHoursSpecification": [
+				{
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+					"opens": "11:00",
+					"closes": "19:00"
+				},
+				{
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": "Saturday",
+					"opens": "11:00",
+					"closes": "16:00"
+				}
+			]
 			}
-		</script>			
-	
+		</script>
+	</head>
+	<body>
+
+		<!-- Icon sprite (inline SVG, replaces Font Awesome) -->
+		<svg style="display:none" aria-hidden="true">
+			<symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+			</symbol>
+			<symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+			</symbol>
+			<symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+				<circle cx="12" cy="10" r="3"/>
+			</symbol>
+			<symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="9"/>
+				<polyline points="12 7 12 12 16 14"/>
+			</symbol>
+			<symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<rect x="3" y="5" width="18" height="14" rx="2"/>
+				<polyline points="3 7 12 13 21 7"/>
+			</symbol>
+			<symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="3" y1="6" x2="21" y2="6"/>
+				<line x1="3" y1="12" x2="21" y2="12"/>
+				<line x1="3" y1="18" x2="21" y2="18"/>
+			</symbol>
+			<symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="18" y1="6" x2="6" y2="18"/>
+				<line x1="6" y1="6" x2="18" y2="18"/>
+			</symbol>
+			<symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+				<rect x="3" y="3" width="18" height="18" rx="5"/>
+				<circle cx="12" cy="12" r="4.2"/>
+				<circle cx="17.3" cy="6.7" r="0.7" fill="currentColor" stroke="none"/>
+			</symbol>
+			<symbol id="icon-hospital" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<rect x="4" y="3" width="16" height="18" rx="1.5"/>
+				<path d="M9 21v-5.5a1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.5V21"/>
+				<path d="M12 6.5v5M9.5 9h5"/>
+			</symbol>
+			<symbol id="icon-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+			</symbol>
+			<symbol id="icon-vial" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<rect x="9" y="2" width="6" height="18" rx="3"/>
+				<path d="M9 12.5h6"/>
+			</symbol>
+			<symbol id="icon-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<g transform="rotate(-45 12 12)">
+					<rect x="4" y="9" width="16" height="6" rx="3"/>
+					<line x1="12" y1="9" x2="12" y2="15"/>
+				</g>
+			</symbol>
+			<symbol id="icon-syringe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<g transform="rotate(45 12 12)">
+					<rect x="9" y="3" width="6" height="10" rx="1"/>
+					<line x1="12" y1="13" x2="12" y2="21"/>
+					<line x1="9" y1="16" x2="15" y2="16"/>
+					<line x1="8.5" y1="3" x2="15.5" y2="3"/>
+				</g>
+			</symbol>
+			<symbol id="icon-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M12 2.7s6 6.9 6 10.9a6 6 0 1 1-12 0c0-4 6-10.9 6-10.9Z"/>
+			</symbol>
+		</svg>
+
+		<a href="#main" class="skip-link">Saltar al contenido</a>
+
+		<!-- Header -->
+		<header id="header">
+			<div class="header-inner">
+				<a href="#inicio" class="brand">
+					<img src="images/logo.webp" alt="Dra. Ana Laura Paz García" width="800" height="800" class="brand-logo" fetchpriority="high" />
+					<span class="brand-name">Dra. Ana Laura <br>Paz García</span>
+				</a>
+
+				<div class="header-cta">
+					<a href="tel:2227291799" onclick="gtag_report_conversion();" class="header-cta-link" aria-label="Llamar al consultorio">
+						<svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+						<span>222 729 1799</span>
+					</a>
+					<a href="https://wa.me/2227291799" target="_blank" rel="noopener" onclick="gtag_report_conversion();" class="header-cta-link whatsapp" aria-label="Escribir por WhatsApp">
+						<svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+						<span>WhatsApp</span>
+					</a>
+				</div>
+
+				<!-- Checkbox-driven mobile nav: works with zero JS -->
+				<div id="nav-drawer">
+					<input type="checkbox" id="nav-check" aria-label="Abrir menú" aria-controls="primary-nav" />
+					<label for="nav-check" id="nav-toggle">
+						<svg class="icon icon-menu" aria-hidden="true"><use href="#icon-menu"></use></svg>
+						<svg class="icon icon-close" aria-hidden="true"><use href="#icon-close"></use></svg>
+					</label>
+					<nav id="primary-nav">
+						<ul>
+							<li><a href="#inicio">Inicio</a></li>
+							<li><a href="#sobre-mi">Sobre Mí</a></li>
+							<li><a href="#servicios">Servicios</a></li>
+							<li><a href="#contacto">Contacto</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<!-- Floating conversion buttons (mobile) -->
+		<div class="float-actions">
+			<a href="tel:2227291799" onclick="gtag_report_conversion();" class="float-btn phone" aria-label="Llamar al consultorio">
+				<svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+			</a>
+			<a href="https://wa.me/2227291799" target="_blank" rel="noopener" onclick="gtag_report_conversion();" class="float-btn whatsapp" aria-label="Escribir por WhatsApp">
+				<svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+			</a>
+		</div>
+
+		<main id="main">
+
+			<!-- Hero -->
+			<section id="inicio" class="hero">
+				<!-- Diente de león del logo, animado (decorativo) -->
+				<div class="hero-art" aria-hidden="true">
+					<svg class="dandelion" viewBox="0 0 520 620" fill="none" role="presentation" focusable="false">
+					<defs>
+						<linearGradient id="dl-seed-grad" x1="0" y1="1" x2="1" y2="0">
+							<stop offset="0%" stop-color="#6fd8bd"/>
+							<stop offset="45%" stop-color="#cdbcff"/>
+							<stop offset="100%" stop-color="#ffffff"/>
+						</linearGradient>
+						<!-- Recorre el vilano a lo largo (userSpaceOnUse en coordenadas del
+						     propio rayo): verde junto al corazón, blanco en la punta. -->
+						<linearGradient id="dl-grad" gradientUnits="userSpaceOnUse" x1="8" y1="0" x2="156" y2="0">
+							<stop offset="0%" stop-color="#57a795"/>
+							<stop offset="20%" stop-color="#8fd6c2"/>
+							<stop offset="50%" stop-color="#cdbcff"/>
+							<stop offset="100%" stop-color="#ffffff"/>
+						</linearGradient>
+						<!-- userSpaceOnUse: los dos tramos del tallo comparten una sola rampa -->
+						<linearGradient id="dl-stem-grad" gradientUnits="userSpaceOnUse" x1="248" y1="206" x2="219" y2="520">
+							<stop offset="0%" stop-color="#9ae7d0"/>
+							<stop offset="20%" stop-color="#6cc2ac"/>
+							<stop offset="55%" stop-color="#3f9385"/>
+							<stop offset="78%" stop-color="#2c7a6c" stop-opacity="0.45"/>
+							<stop offset="100%" stop-color="#2c7a6c" stop-opacity="0"/>
+						</linearGradient>
+						<!-- Vilanos apelmazados: da cuerpo a la esfera, como en la foto -->
+						<radialGradient id="dl-fluff-grad" cx="50%" cy="50%" r="50%">
+							<stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+							<stop offset="42%" stop-color="#efe7ff" stop-opacity="0.2"/>
+							<stop offset="76%" stop-color="#cdbcff" stop-opacity="0.09"/>
+							<stop offset="100%" stop-color="#cdbcff" stop-opacity="0"/>
+						</radialGradient>
+						<radialGradient id="dl-halo-grad" cx="50%" cy="50%" r="50%">
+							<stop offset="0%" stop-color="#b74e91" stop-opacity="0.34"/>
+							<stop offset="55%" stop-color="#6b4bbd" stop-opacity="0.16"/>
+							<stop offset="100%" stop-color="#6b4bbd" stop-opacity="0"/>
+						</radialGradient>
+						<!-- Vilano: siempre el mismo largo, solo cambia la curvatura del nervio -->
+						<g id="dl-ray-1"><path d="M14.0 0Q76 -9 138.0 0"/><path d="M138.0 0Q141.8 -6.1 143.1 -12.0M138.0 0Q143.7 -4.3 147.0 -9.4M138.0 0Q145.9 -2.3 151.5 -6.5M138.0 0Q146.2 0.6 152.9 -1.3M138.0 0Q145.5 3.4 152.5 4.0M138.0 0Q143.1 5.1 148.5 7.6M138.0 0Q140.9 6.5 145.1 10.9"/></g>
+						<g id="dl-ray-2"><path d="M14.0 0Q76 5 138.0 0"/><path d="M138.0 0Q142.3 -5.7 144.1 -11.5M138.0 0Q144.1 -3.8 147.8 -8.5M138.0 0Q146.1 -1.6 152.1 -5.3M138.0 0Q146.1 1.3 153.0 0.0M138.0 0Q145.2 4.1 152.1 5.3M138.0 0Q142.6 5.5 147.8 8.5M138.0 0Q140.3 6.8 144.1 11.5"/></g>
+						<g id="dl-ray-3"><path d="M14.0 0Q76 -2 138.0 0"/><path d="M138.0 0Q142.7 -5.4 144.9 -11.0M138.0 0Q144.3 -3.4 148.4 -7.8M138.0 0Q146.2 -1.1 152.4 -4.3M138.0 0Q146.0 1.9 153.0 1.0M138.0 0Q144.9 4.6 151.6 6.2M138.0 0Q142.2 5.8 147.2 9.2M138.0 0Q139.9 6.9 143.3 11.9"/></g>
+						<!-- Sin color propio: lo hereda del contexto (ver .dl-flyers / .drift en el CSS) -->
+						<g id="dl-seed" stroke-width="1.5" stroke-linecap="round">
+							<path d="M0 0Q-0.5 7 -0.6 15M0 0Q-7.7 -0.4 -12.3 -6.6M0 0Q-4.9 -5 -9.6 -10.2M0 0Q-3.7 -7.2 -4.4 -15.2M0 0Q-0.9 -6.7 0.1 -13.4M0 0Q3.7 -5.8 3.5 -12.6M0 0Q7.1 -4.4 10.7 -11.9M0 0Q7 -1.8 11.1 -7.8"/>
+							<circle cx="-0.6" cy="16.4" r="1.6" fill="currentColor" stroke="none"/>
+						</g>
+					</defs>
+
+					<ellipse class="dl-halo" cx="250" cy="205" rx="215" ry="205" fill="url(#dl-halo-grad)"/>
+
+					<g class="dl-plant">
+						<!-- Tallo en dos tramos rellenos y ahusados (fino arriba, grueso en la base).
+						     El tramo alto vive en .dl-bend para que el tallo se arquee, no bascule. -->
+						<path class="dl-stem dl-stem-low" d="M230.2 400C226.7 440 222.1 480 214.6 520L223.4 520C229.9 480 233.3 440 235.8 400Z" fill="url(#dl-stem-grad)"/>
+						<g class="dl-bend">
+							<path class="dl-stem dl-stem-up" d="M248.6 214C245.2 275 235.7 345 230.2 400L235.8 400C240.3 345 248.8 275 251.4 214Z" fill="url(#dl-stem-grad)"/>
+							<g class="dl-head" stroke="url(#dl-grad)" stroke-linecap="round">
+								<circle class="dl-fluff" cx="250" cy="205" r="124" fill="url(#dl-fluff-grad)" stroke="none"/>
+								<g class="dl-l1" stroke-width="1.1" opacity="0.45">
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(1.9)scale(0.958)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(6.0)scale(0.900)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(9.4)scale(0.965)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(14.6)scale(0.995)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(17.9)scale(0.999)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(22.9)scale(0.953)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(27.9)scale(0.943)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(31.1)scale(0.948)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(33.6)scale(1.000)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(39.1)scale(0.918)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(42.8)scale(0.903)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(46.3)scale(0.989)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(51.6)scale(0.972)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(55.0)scale(0.960)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(59.9)scale(0.987)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(63.4)scale(1.000)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(68.2)scale(0.979)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(71.3)scale(0.873)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(74.3)scale(0.994)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(79.7)scale(0.866)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(83.6)scale(0.957)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(88.7)scale(0.990)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(91.5)scale(1.000)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(96.9)scale(0.998)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(100.8)scale(1.000)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(105.1)scale(0.996)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(107.5)scale(0.966)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(113.2)scale(0.977)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(115.5)scale(0.977)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(119.3)scale(0.898)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(124.2)scale(0.892)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(128.0)scale(0.861)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(133.3)scale(0.999)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(136.2)scale(0.991)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(140.7)scale(0.989)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(144.0)scale(0.994)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(148.6)scale(0.952)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(153.7)scale(0.998)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(157.5)scale(0.956)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(160.7)scale(0.997)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(166.6)scale(0.992)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(168.8)scale(0.947)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(173.0)scale(0.875)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(178.2)scale(0.977)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(181.0)scale(0.965)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(185.4)scale(0.933)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(190.0)scale(0.887)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(193.7)scale(0.996)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(199.7)scale(0.998)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(202.7)scale(0.901)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(205.4)scale(0.994)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(211.4)scale(0.999)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(214.6)scale(1.000)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(218.3)scale(0.963)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(221.8)scale(0.998)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(228.4)scale(0.942)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(231.2)scale(0.876)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(233.9)scale(1.000)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(239.9)scale(0.871)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(243.7)scale(0.999)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(248.1)scale(0.987)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(250.4)scale(0.960)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(254.4)scale(0.879)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(260.3)scale(0.915)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(263.5)scale(0.937)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(269.0)scale(0.977)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(273.1)scale(0.956)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(276.6)scale(0.981)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(280.5)scale(0.999)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(283.2)scale(0.991)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(289.0)scale(0.980)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(293.0)scale(0.972)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(297.5)scale(0.999)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(299.4)scale(0.952)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(303.4)scale(0.873)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(308.9)scale(0.950)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(312.3)scale(1.000)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(316.1)scale(0.950)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(320.2)scale(0.887)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(326.4)scale(0.967)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(328.8)scale(0.941)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(333.8)scale(0.912)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(338.6)scale(0.981)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(342.8)scale(0.994)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(345.7)scale(0.904)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(350.4)scale(0.875)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(354.8)scale(0.998)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(357.3)scale(0.994)"/>
+								</g>
+								<g class="dl-l2" stroke-width="2.0" opacity="0.65">
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(2.3)scale(0.734)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(7.5)scale(0.622)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(13.5)scale(0.845)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(18.3)scale(0.707)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(25.3)scale(0.719)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(30.6)scale(0.721)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(34.1)scale(0.753)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(41.9)scale(0.803)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(47.5)scale(0.558)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(51.6)scale(0.699)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(57.8)scale(0.777)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(63.4)scale(0.818)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(67.3)scale(0.670)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(73.8)scale(0.853)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(78.2)scale(0.783)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(86.2)scale(0.740)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(89.6)scale(0.641)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(93.9)scale(0.582)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(100.5)scale(0.754)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(106.8)scale(0.592)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(112.0)scale(0.692)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(118.4)scale(0.577)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(122.1)scale(0.559)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(129.0)scale(0.631)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(135.2)scale(0.835)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(140.6)scale(0.560)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(144.7)scale(0.642)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(149.1)scale(0.669)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(154.9)scale(0.844)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(160.3)scale(0.763)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(166.3)scale(0.855)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(171.6)scale(0.853)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(176.7)scale(0.643)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(182.6)scale(0.550)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(188.2)scale(0.683)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(195.3)scale(0.742)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(197.6)scale(0.813)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(204.8)scale(0.626)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(210.5)scale(0.733)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(214.6)scale(0.685)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(219.8)scale(0.618)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(226.5)scale(0.718)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(231.5)scale(0.837)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(237.7)scale(0.855)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(242.8)scale(0.768)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(246.8)scale(0.841)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(252.0)scale(0.728)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(260.7)scale(0.638)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(263.7)scale(0.748)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(269.4)scale(0.596)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(275.5)scale(0.838)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(281.3)scale(0.585)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(287.1)scale(0.561)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(290.7)scale(0.812)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(296.5)scale(0.667)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(303.2)scale(0.839)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(308.5)scale(0.617)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(312.7)scale(0.819)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(320.5)scale(0.856)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(324.2)scale(0.731)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(330.1)scale(0.612)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(336.0)scale(0.731)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(341.3)scale(0.615)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(347.9)scale(0.700)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(353.3)scale(0.790)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(358.7)scale(0.819)"/>
+								</g>
+								<g class="dl-l3" stroke-width="2.6" opacity="0.8">
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(7.6)scale(0.528)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(12.5)scale(0.536)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(22.3)scale(0.386)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(35.3)scale(0.417)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(44.3)scale(0.421)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(52.3)scale(0.446)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(67.8)scale(0.350)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(76.4)scale(0.432)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(85.0)scale(0.421)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(97.1)scale(0.464)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(101.9)scale(0.450)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(117.8)scale(0.465)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(122.9)scale(0.516)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(138.3)scale(0.362)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(145.5)scale(0.528)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(154.7)scale(0.403)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(164.3)scale(0.475)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(174.5)scale(0.440)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(185.9)scale(0.544)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(192.8)scale(0.470)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(204.1)scale(0.363)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(212.7)scale(0.458)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(223.8)scale(0.536)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(237.6)scale(0.367)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(245.5)scale(0.519)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(258.3)scale(0.393)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(263.5)scale(0.531)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(276.9)scale(0.391)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(282.5)scale(0.494)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(296.3)scale(0.402)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(304.4)scale(0.413)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(317.0)scale(0.499)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(321.7)scale(0.489)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(337.7)scale(0.542)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(348.0)scale(0.426)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(353.1)scale(0.479)"/>
+								</g>
+								<g class="dl-l4" stroke-width="4.0" opacity="0.7">
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(7.8)scale(0.282)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(24.0)scale(0.222)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(42.4)scale(0.338)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(48.5)scale(0.307)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(66.5)scale(0.334)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(84.0)scale(0.340)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(95.0)scale(0.171)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(112.9)scale(0.277)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(128.2)scale(0.143)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(141.9)scale(0.234)"/>
+									<use href="#dl-ray-1" transform="translate(250 205)rotate(158.5)scale(0.209)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(171.3)scale(0.161)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(187.2)scale(0.317)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(202.9)scale(0.244)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(222.0)scale(0.276)"/>
+									<use href="#dl-ray-3" transform="translate(250 205)rotate(231.5)scale(0.295)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(245.3)scale(0.232)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(266.9)scale(0.230)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(275.4)scale(0.339)"/><use href="#dl-ray-2" transform="translate(250 205)rotate(293.4)scale(0.236)"/>
+									<use href="#dl-ray-2" transform="translate(250 205)rotate(310.1)scale(0.282)"/><use href="#dl-ray-3" transform="translate(250 205)rotate(325.0)scale(0.334)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(342.0)scale(0.331)"/><use href="#dl-ray-1" transform="translate(250 205)rotate(351.8)scale(0.266)"/>
+								</g>
+							</g>
+							<ellipse class="dl-core" cx="250" cy="205" rx="13.5" ry="12" transform="rotate(-12 250 205)" fill="#4fa894"/>
+						</g>
+					</g>
+
+					<g class="dl-flyers">
+					<g transform="translate(272 67)"><g class="dl-fly" style="--dur:25s;--delay:-0s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(384 252)"><g class="dl-fly" style="--dur:27s;--delay:-1s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(348 50)"><g class="dl-fly" style="--dur:16s;--delay:-1s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(361 119)"><g class="dl-fly" style="--dur:25s;--delay:-2s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(351 104)"><g class="dl-fly" style="--dur:19s;--delay:-2s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(306 52)"><g class="dl-fly" style="--dur:22s;--delay:-3s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(427 167)"><g class="dl-fly" style="--dur:19s;--delay:-4s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(441 205)"><g class="dl-fly" style="--dur:17s;--delay:-4s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(336 93)"><g class="dl-fly" style="--dur:21s;--delay:-5s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(386 133)"><g class="dl-fly" style="--dur:21s;--delay:-6s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(398 237)"><g class="dl-fly" style="--dur:22s;--delay:-7s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(432 198)"><g class="dl-fly" style="--dur:17s;--delay:-6s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(338 84)"><g class="dl-fly" style="--dur:26s;--delay:-10s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(408 121)"><g class="dl-fly" style="--dur:17s;--delay:-7s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(426 184)"><g class="dl-fly" style="--dur:15s;--delay:-6s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(325 94)"><g class="dl-fly" style="--dur:15s;--delay:-7s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(325 72)"><g class="dl-fly" style="--dur:24s;--delay:-12s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(385 253)"><g class="dl-fly" style="--dur:18s;--delay:-9s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(397 283)"><g class="dl-fly" style="--dur:19s;--delay:-10s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(365 82)"><g class="dl-fly" style="--dur:17s;--delay:-10s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(434 253)"><g class="dl-fly" style="--dur:20s;--delay:-12s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(440 236)"><g class="dl-fly" style="--dur:24s;--delay:-15s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(403 99)"><g class="dl-fly" style="--dur:20s;--delay:-13s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(302 71)"><g class="dl-fly" style="--dur:25s;--delay:-17s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(396 160)"><g class="dl-fly" style="--dur:24s;--delay:-18s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(393 229)"><g class="dl-fly" style="--dur:23s;--delay:-17s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(407 151)"><g class="dl-fly" style="--dur:19s;--delay:-15s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(400 141)"><g class="dl-fly" style="--dur:22s;--delay:-18s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(413 229)"><g class="dl-fly" style="--dur:25s;--delay:-21s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(263 50)"><g class="dl-fly" style="--dur:26s;--delay:-23s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(425 154)"><g class="dl-fly" style="--dur:21s;--delay:-19s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(405 212)"><g class="dl-fly" style="--dur:26s;--delay:-24s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					<g transform="translate(338 48)"><g class="dl-fly" style="--dur:19s;--delay:-18s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></g>
+					</g>
+
+					</svg>
+				</div>
+
+				<div class="hero-inner">
+					<div class="hero-copy">
+						<h1>Dra. Ana Laura Paz García</h1>
+						<p class="hero-subtitle"><strong>Alergóloga Pediátrica en Puebla</strong></p>
+						<p>Cuidamos de ti y tu familia con atención especializada en alergias e inmunología, combinando experiencia y calidez.</p>
+						<div class="hero-actions">
+							<a href="https://wa.me/2227291799" target="_blank" rel="noopener" onclick="gtag_report_conversion();" class="button whatsapp">Agenda por WhatsApp</a>
+							<a href="#servicios" class="button ghost">Ver Servicios</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Sobre Mí -->
+			<section id="sobre-mi" class="section">
+				<div class="section-inner">
+					<h2>Sobre Mí</h2>
+					<div class="about-grid">
+						<article class="about-card">
+							<img src="images/logo.webp" alt="Logo de la Dra. Ana Laura Paz García, alergóloga pediátrica en Puebla" width="800" height="800" loading="lazy" />
+							<div class="about-card-body">
+								<h3>Dra. Ana Laura Paz García</h3>
+								<p>El cuidado y bienestar de tu familia en manos expertas. La Dra. Ana Laura Paz García, subespecialista en Alergología Pediátrica, combina ciencia y calidez para brindar el mejor tratamiento en alergias e inmunología.</p>
+							</div>
+						</article>
+						<article class="about-card">
+							<img src="images/AnaLaura.webp" alt="Experiencia profesional en alergología e inmunología" width="675" height="900" loading="lazy" />
+							<div class="about-card-body">
+								<h3>Experiencia Profesional</h3>
+								<ul>
+									<li>Alergia e inmunología Pediatra, H.R.A.E. Gral. Zaragoza, ISSSTE.</li>
+									<li>Pediatra, Centro Médico Nacional Siglo XXI, IMSS.</li>
+									<li>Médico Cirujano y Partero, Benemérita Universidad Autónoma de Puebla.</li>
+								</ul>
+							</div>
+						</article>
+						<article class="about-card" id="certificaciones">
+							<img src="images/diploma.webp" alt="Diplomas y certificaciones de la Dra. Ana Laura Paz García" width="600" height="900" loading="lazy" />
+							<div class="about-card-body">
+								<h3>Certificaciones Y Cédulas</h3>
+								<ul>
+									<li>Cédula Profesional: 10294244.</li>
+									<li>Cédula Especialidad: 15058694.</li>
+									<li>Certificada por el Consejo Nacional de Inmunología Clínica y Alergia, A.C. 2025 - 2030.</li>
+									<li>Certificada por el Consejo Mexicano de Certificación en Pediatría, A.C. 2023 - 2027.</li>
+								</ul>
+							</div>
+						</article>
+						<article class="about-card" id="publicaciones">
+							<img src="images/publicaciones.webp" alt="Publicaciones científicas de la Dra. Ana Laura Paz García" width="600" height="900" loading="lazy" />
+							<div class="about-card-body">
+								<h3>Publicaciones</h3>
+								<ul>
+									<li>Multimorbilidad y resultados clínicos en población pediátrica con sospecha de COVID-19 (2022)</li>
+									<li>Alerg Asma Inmunol Pediatr. (2024)</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Servicios -->
+			<section id="servicios" class="section section-light">
+				<!-- Vilanos sueltos cruzando la sección (decorativo) -->
+				<div class="drift" aria-hidden="true">
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="63" height="63" style="left:50%;top:2%"><g class="dl-fly" style="--dur:15s;--delay:-0s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="55" height="55" style="left:16%;top:13%"><g class="dl-fly" style="--dur:14s;--delay:-1s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="40" height="40" style="left:4%;top:17%"><g class="dl-fly" style="--dur:21s;--delay:-3s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="49" height="49" style="left:22%;top:27%"><g class="dl-fly" style="--dur:17s;--delay:-4s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="72" height="72" style="left:12%;top:34%"><g class="dl-fly" style="--dur:17s;--delay:-5s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="43" height="43" style="left:38%;top:40%"><g class="dl-fly" style="--dur:18s;--delay:-6s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="68" height="68" style="left:29%;top:47%"><g class="dl-fly" style="--dur:19s;--delay:-8s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="46" height="46" style="left:8%;top:51%"><g class="dl-fly" style="--dur:14s;--delay:-7s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="73" height="73" style="left:40%;top:63%"><g class="dl-fly" style="--dur:14s;--delay:-8s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="43" height="43" style="left:24%;top:70%"><g class="dl-fly" style="--dur:18s;--delay:-11s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="74" height="74" style="left:-3%;top:74%"><g class="dl-fly" style="--dur:18s;--delay:-13s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="55" height="55" style="left:-1%;top:80%"><g class="dl-fly" style="--dur:18s;--delay:-14s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="66" height="66" style="left:32%;top:89%"><g class="dl-fly" style="--dur:17s;--delay:-14s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="51" height="51" style="left:44%;top:97%"><g class="dl-fly" style="--dur:17s;--delay:-16s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+				</div>
+				<div class="section-inner">
+					<h2>Servicios</h2>
+					<p>Brindamos atención especializada para el diagnóstico, tratamiento y prevención de alergias. Conoce nuestros servicios:</p>
+					<div class="services-grid">
+						<article class="service-card">
+							<svg class="icon service-icon" aria-hidden="true"><use href="#icon-hospital"></use></svg>
+							<h3>Consulta de Alergia e Inmunología</h3>
+							<p>Atención especializada para diagnóstico y tratamiento en niños y adultos.</p>
+							<p class="service-price-label"><strong>Costos:</strong></p>
+							<ul>
+								<li>Primera vez: $1,000.00</li>
+								<li>Subsecuentes: $800.00</li>
+							</ul>
+						</article>
+						<article class="service-card">
+							<svg class="icon service-icon" aria-hidden="true"><use href="#icon-activity"></use></svg>
+							<h3>Consulta de Pediatría</h3>
+							<p>Atención médica integral para el cuidado y bienestar de los más pequeños.</p>
+							<p class="service-price-label"><strong>Costos:</strong></p>
+							<ul>
+								<li>Primera vez: $1,000.00</li>
+								<li>Subsecuentes: $800.00</li>
+							</ul>
+						</article>
+						<article class="service-card">
+							<svg class="icon service-icon" aria-hidden="true"><use href="#icon-vial"></use></svg>
+							<h3>Pruebas Diagnósticas</h3>
+							<ul>
+								<li>Pruebas cutáneas aeroalérgenos</li>
+								<li>Pruebas cutáneas de alimentos</li>
+								<li>Pruebas cutáneas e intradérmicas a fármacos</li>
+								<li>Prueba de suero autólogo</li>
+							</ul>
+						</article>
+						<article class="service-card">
+							<svg class="icon service-icon" aria-hidden="true"><use href="#icon-pill"></use></svg>
+							<h3>Inmunoterapia Sublingual</h3>
+							<p>Tratamiento vía oral para reducir síntomas de alergia y mejorar la calidad de vida.</p>
+						</article>
+						<article class="service-card">
+							<svg class="icon service-icon" aria-hidden="true"><use href="#icon-syringe"></use></svg>
+							<h3>Inmunoterapia Subcutánea</h3>
+							<p>Terapia inyectable especializada para disminuir los síntomas de alergia.</p>
+						</article>
+						<article class="service-card">
+							<svg class="icon service-icon" aria-hidden="true"><use href="#icon-droplet"></use></svg>
+							<h3>Alergoide</h3>
+							<p>Alérgenos purificados químicamente para un tratamiento eficaz y seguro.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contacto -->
+			<section id="contacto" class="section">
+				<!-- Vilanos sueltos cruzando la sección (decorativo) -->
+				<div class="drift" aria-hidden="true">
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="40" height="40" style="left:36%;top:4%"><g class="dl-fly" style="--dur:21s;--delay:-0s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="52" height="52" style="left:25%;top:12%"><g class="dl-fly" style="--dur:15s;--delay:-1s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="51" height="51" style="left:52%;top:18%"><g class="dl-fly" style="--dur:19s;--delay:-3s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="64" height="64" style="left:9%;top:24%"><g class="dl-fly" style="--dur:19s;--delay:-4s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="50" height="50" style="left:45%;top:34%"><g class="dl-fly" style="--dur:15s;--delay:-4s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="42" height="42" style="left:-5%;top:42%"><g class="dl-fly" style="--dur:20s;--delay:-7s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="40" height="40" style="left:11%;top:45%"><g class="dl-fly" style="--dur:20s;--delay:-9s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="52" height="52" style="left:19%;top:52%"><g class="dl-fly" style="--dur:19s;--delay:-10s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="45" height="45" style="left:6%;top:59%"><g class="dl-fly" style="--dur:19s;--delay:-11s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="70" height="70" style="left:35%;top:68%"><g class="dl-fly" style="--dur:16s;--delay:-10s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="46" height="46" style="left:31%;top:75%"><g class="dl-fly" style="--dur:14s;--delay:-10s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="57" height="57" style="left:0%;top:85%"><g class="dl-fly" style="--dur:18s;--delay:-14s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="48" height="48" style="left:43%;top:90%"><g class="dl-fly" style="--dur:15s;--delay:-13s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="48" height="48" style="left:16%;top:97%"><g class="dl-fly" style="--dur:17s;--delay:-16s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+				</div>
+				<div class="section-inner">
+					<h2>Ponte en Contacto</h2>
+					<p>Agenda tu cita y da el primer paso hacia una vida sin alergias. Estamos aquí para ayudarte.</p>
+					<div class="contact-grid">
+						<div class="contact-card">
+							<svg class="icon" aria-hidden="true"><use href="#icon-map-pin"></use></svg>
+							<h3>Dirección</h3>
+							<p>Av 35 Ote 2804-A, Col. Alseseca,<br>Puebla, Pue. México</p>
+							<a class="button ghost" href="https://maps.app.goo.gl/12M8J3r8bR2cNiDx9" target="_blank" rel="noopener">Abrir en Google Maps</a>
+						</div>
+						<div class="contact-card">
+							<svg class="icon" aria-hidden="true"><use href="#icon-clock"></use></svg>
+							<h3>Horarios</h3>
+							<p>
+								Lunes a Viernes: 11:00 a 19:00<br>
+								Sábado: 11:00 a 16:00
+							</p>
+						</div>
+						<div class="contact-card">
+							<svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+							<h3>WhatsApp</h3>
+							<a href="https://wa.me/2227291799" target="_blank" rel="noopener" onclick="gtag_report_conversion();" class="button whatsapp">Escríbenos</a>
+						</div>
+						<div class="contact-card">
+							<svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+							<h3>Teléfonos</h3>
+							<p>
+								<a href="tel:2227291799" onclick="gtag_report_conversion();">Celular: 2227291799</a><br>
+								<a href="tel:2222646580" onclick="gtag_report_conversion();">Consultorio: (222)2646580</a>
+							</p>
+						</div>
+						<div class="contact-card">
+							<svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg>
+							<h3>Correo</h3>
+							<a href="mailto:dra.analau.alergo@gmail.com">dra.analau.alergo@gmail.com</a>
+						</div>
+						<div class="contact-card">
+							<svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>
+							<h3>Social</h3>
+							<a href="https://www.instagram.com/dra.analau.alergo" target="_blank" rel="noopener">@dra.analau.alergo</a>
+						</div>
+						<div class="contact-card payments">
+							<h3>Aceptamos las siguientes formas de pago</h3>
+							<div class="logo-row">
+								<img src="images/Pagos/efectivo.svg" alt="Efectivo" width="43" height="30" loading="lazy" />
+								<img src="images/Pagos/visa.png" alt="Visa" width="145" height="85" loading="lazy" />
+								<img src="images/Pagos/master.png" alt="MasterCard" width="145" height="85" loading="lazy" />
+								<img src="images/Pagos/amex.png" alt="American Express" width="145" height="85" loading="lazy" />
+								<img src="images/Pagos/apple.png" alt="Apple Pay" width="145" height="85" loading="lazy" />
+								<img src="images/Pagos/google.png" alt="Google Pay" width="131" height="70" loading="lazy" />
+								<img src="images/Pagos/samsung.png" alt="Samsung Pay" width="145" height="67" loading="lazy" />
+								<img src="images/Pagos/carnet.png" alt="Carnet" width="121" height="67" loading="lazy" />
+								<img src="images/Pagos/siVale.png" alt="Up Sí Vale" width="145" height="85" loading="lazy" />
+								<img src="images/Pagos/toka.png" alt="Toka" width="116" height="39" loading="lazy" />
+								<img src="images/Pagos/tengo.png" alt="Tengo" width="139" height="85" loading="lazy" />
+								<img src="images/Pagos/edenred.png" alt="Edenred" width="145" height="85" loading="lazy" />
+								<img src="images/Pagos/pluxee.png" alt="Pluxee" width="145" height="85" loading="lazy" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="section-inner">
+				<p>Autorización de Publicidad COFEPRIS: 2521062002A00426</p>
+				<p>&copy;2026 por DRA. ANA LAURA PAZ GARCÍA.</p>
+			</div>
+		</footer>
+
+		<script src="assets/js/main.js" defer></script>
+
 		<script>
 			function gtag_report_conversion(url) {
 				var callback = function () {
@@ -56,285 +572,11 @@
 				});
 				return (typeof url !== 'undefined' && url);
 			}
-		</script>
-
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16940851986"></script>
-		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 			gtag('config', 'AW-16940851986');
 		</script>
-
-
-	
-	</head>
-	<body class="is-preload">
-
-		<!-- Sidebar -->
-		<section id="sidebar">
-			<div class="inner">
-				<nav>
-					<ul>
-						<li><a href="#intro">Inicio</a></li>
-						<li><a href="#consultorio">Sobre Mí</a></li>
-						<li><a href="#servicios">Servicios</a></li>
-						<!--<li><a href="#Ofertas">Ofertas</a></li>-->
-						<li><a href="#contacto">Contacto</a></li>						
-					</ul>
-				</nav>								
-			</div>			
-		</section>
-		
-		<!-- Wrapper -->
-		<div id="wrapper">
-
-			<a href="tel:2227291799" 
-				onclick="gtag_report_conversion();" 
-				class="float-btn phone" 
-				aria-label="Phone">
-				<img src="images/Phone.svg" alt="Phone" width="45">
-			</a>
-			<a href="https://wa.me/2227291799" 
-				target="_blank"
-				onclick="gtag_report_conversion();" 
-				class="float-btn whatsapp" 
-				aria-label="WhatsApp">
-				<img src="images/WhatsApp_icon.png" alt="WhatsApp" width="45">
-			</a>
-			<!-- Intro -->
-			<section id="intro" class="wrapper style1 fullscreen fade-up">
-				<div class="inner">
-					<h1>Dra. Ana Laura Paz García</h1>
-					<p><strong>Alergóloga Pediátrica en Puebla</strong><br>
-					Cuidamos de ti y tu familia con atención especializada en alergias e inmunología, combinando experiencia y calidez.</p>
-					<ul class="actions">
-						<li><a href="#servicios" class="button scrolly">Servicios</a></li>
-					</ul>
-				</div>
-			</section>
-
-			<!-- Sobre Mí / Consultorio -->
-			<section id="consultorio" class="wrapper style2 spotlights">
-				<section>
-					<a href="#" class="image">
-						<img src="images/logo.jpeg" alt="Logo de la Dra. Ana Laura Paz García, alergóloga pediátrica en Puebla" data-position="center center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<h2>Dra. Ana Laura Paz García</h2>
-							<p>El cuidado y bienestar de tu familia en manos expertas. La Dra. Ana Laura Paz García, subespecialista en Alergología Pediátrica, combina ciencia y calidez para brindar el mejor tratamiento en alergias e inmunología.</p>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="#" class="image">
-						<img src="images/AnaLaura.jpeg" alt="Experiencia profesional en alergología e inmunología" data-position="top center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<h2>Experiencia Profesional</h2>
-							<ul>
-								<li>Alergia e inmunología Pediatra, H.R.A.E. Gral. Zaragoza, ISSSTE.</li>
-								<li>Pediatra, Centro Médico Nacional Siglo XXI, IMSS.</li>
-								<li>Médico Cirujano y Partero, Benemérita Universidad Autónoma de Puebla.</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="#" class="image">
-						<img src="images/diploma.jpg" alt="Diplomas y certificaciones de la Dra. Ana Laura Paz García" data-position="25% 25%" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<h2>Certificaciones Y Cédulas</h2>
-							<ul>
-								<li>Cédula Profesional: 10294244.</li>
-								<li>Cédula Especialidad: 15058694.</li>
-								<li>Certificada por el Consejo Nacional de Inmunología Clínica y Alergia, A.C. 2025 - 2030.</li>
-								<li>Certificada por el Consejo Mexicano de Certificación en Pediatría, A.C. 2023 - 2027.</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="#" class="image">
-						<img src="images/publicaciones.jpg" alt="Publicaciones científicas de la Dra. Ana Laura Paz García" data-position="25% 25%" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<h2>Publicaciones</h2>
-							<ul>
-								<li>Multimorbilidad y resultados clínicos en población pediátrica con sospecha de COVID-19 (2022)</li>
-								<li>Alerg Asma Inmunol Pediatr. (2024)</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-			</section>
-
-			<!-- Servicios -->
-			<section id="servicios" class="wrapper style3 fade-up">
-				<div class="inner">
-					<h2>Servicios</h2>
-					<p>Brindamos atención especializada para el diagnóstico, tratamiento y prevención de alergias. Conoce nuestros servicios:</p>
-					<div class="features">
-						<section>
-							<span class="icon solid major fa-hospital"></span>
-							<h3>Consulta de Alergia e Inmunología</h3>
-							<p>Atención especializada para diagnóstico y tratamiento en niños y adultos.</p>
-							<p><strong>Costos:</strong></p>
-							<ul>
-								<li>Primera vez: $1,000.00</li>
-								<li>Subsecuentes: $800.00</li>
-							</ul>
-						</section>
-						<section>
-							<span class="icon solid major fa-hospital-alt"></span>
-							<h3>Consulta de Pediatría</h3>
-							<p>Atención médica integral para el cuidado y bienestar de los más pequeños.</p>
-							<p><strong>Costos:</strong></p>
-							<ul>
-								<li>Primera vez: $1,000.00</li>
-								<li>Subsecuentes: $800.00</li>
-							</ul>
-						</section>
-						<section>
-							<span class="icon solid major fa-vial"></span>
-							<h3>Pruebas Diagnósticas</h3>
-							<ul>
-								<li>Pruebas cutáneas aeroalérgenos</li>
-								<li>Pruebas cutáneas de alimentos</li>
-								<li>Pruebas cutáneas e intradérmicas a fármacos</li>
-								<li>Prueba de suero autólogo</li>
-							</ul>
-						</section>
-						<section>
-							<span class="icon solid major fa-prescription-bottle-alt"></span>
-							<h3>Inmunoterapia Sublingual</h3>
-							<p>Tratamiento vía oral para reducir síntomas de alergia y mejorar la calidad de vida.</p>
-						</section>
-						<section>
-							<span class="icon solid major fa-syringe"></span>
-							<h3>Inmunoterapia Subcutánea</h3>
-							<p>Terapia inyectable especializada para disminuir los síntomas de alergia.</p>
-						</section>
-						<section>
-							<span class="icon solid major fa-hospital-user"></span>
-							<h3>Alergoide</h3>
-							<p>Alérgenos purificados químicamente para un tratamiento eficaz y seguro.</p>
-						</section>
-					</div>
-				</div>
-			</section>
-
-			<!-- Contacto -->
-			<section id="contacto" class="wrapper style1 fade-up">
-				<div class="inner">
-					<h2>Ponte en Contacto</h2>
-					<p>Agenda tu cita y da el primer paso hacia una vida sin alergias. Estamos aquí para ayudarte.</p>
-					<div class="split style1">
-						<section>
-							<ul class="contact">
-								<li>
-									<h3>Dirección</h3>
-									<a href="https://maps.app.goo.gl/12M8J3r8bR2cNiDx9" target="_blank">
-										<p>Av 35 Ote 2804-A, Col. Alseseca,<br>Puebla, Pue. México</p>
-									</a>
-									<div class="row">
-										<a href="https://maps.app.goo.gl/12M8J3r8bR2cNiDx9" target="_blank">
-											<img src="images/ubicación.png" alt="Ver en Google Maps" style="width:100%;  cursor:pointer;">
-										</a>
-									</div>
-								</li>
-								<li>
-									<h3>Horarios</h3>
-									<span>
-										Lunes a Viernes: 11:00 a 19:00<br>
-										Sábado: 11:00 a 16:00<br>
-									</span>
-								</li>
-								<li>
-									<h3>WhatsApp</h3>
-									<a href="https://wa.me/2227291799" target="_blank"
-									onclick="gtag_report_conversion();">
-										<img src="images/WhatsApp_icon.png" alt="WhatsApp" width="45">
-									</a>
-								</li>
-								<li>
-									<h3>Teléfonos</h3>
-									<span>
-										<a href="tel:2227291799" onclick="gtag_report_conversion();">Celular: 2227291799</a><br>
-										<a href="tel:2222646580" onclick="gtag_report_conversion();">Consultorio: (222)2646580</a>																				
-									</span>
-								</li>
-								<li>
-									<h3>Correo</h3>
-									<a href="mailto:dra.analau.alergo@gmail.com">dra.analau.alergo@gmail.com</a>
-								</li>
-								<li>
-									<h3>Aceptamos las siguientes formas de pago</h3>
-									<div class="logo-row">
-										<img src="images/Pagos/efectivo.svg" alt="Efectivo">
-										<!--<img src="images/Pagos/trans.svg" alt="Transferencias">-->
-										<img src="images/Pagos/visa.png" alt="Visa">
-										<img src="images/Pagos/master.png" alt="MasterCard">
-										<img src="images/Pagos/amex.png" alt="American Express">										
-									  </div>	
-									  <div class="logo-row">
-										<img src="images/Pagos/apple.png" alt="Apple Pay">
-										<img src="images/Pagos/google.png" alt="Google Pay">
-										<img src="images/Pagos/samsung.png" alt="Samsung Pay">
-										<img src="images/Pagos/carnet.png" alt="Carnet">
-									  </div>
-									  <div class="logo-row">									
-										<img src="images/Pagos/siVale.png" alt="Up Sí Vale">
-										<img src="images/Pagos/toka.png" alt="Toka">
-										<img src="images/Pagos/tengo.png" alt="Tengo">
-										<img src="images/Pagos/edenred.png" alt="Edenred">										
-									  </div>				
-									  <div class="logo-row">
-										<img src="images/Pagos/pluxee.png" alt="Pluxee">
-									  </div>													
-								</li>
-								<li>
-									<h3>Social</h3>
-									<ul class="icons">
-										<li>
-											<a href="https://www.instagram.com/dra.analau.alergo" class="icon brands fa-instagram">
-												<span class="label">Instagram</span>
-											</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</section>
-					</div>
-				</div>
-			</section>
-
-		</div>
-
-		<!-- Footer -->
-		<footer id="footer" class="wrapper style1-alt">
-			<div class="inner">
-				<ul class="menu">
-					<li></li>
-					<li>Autorización de Publicidad COFEPRIS: 2521062002A00426</li>
-					<li>&copy;2026 por DRA. ANA LAURA PAZ GARCÍA.</li>
-				</ul>
-			</div>
-		</footer>
-
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16940851986"></script>
 	</body>
 </html>

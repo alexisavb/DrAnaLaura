@@ -1,190 +1,70 @@
-/*
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+(function () {
+	"use strict";
 
-(function($) {
+	var drawer = document.getElementById("nav-drawer");
+	var check = document.getElementById("nav-check");
+	var nav = document.getElementById("primary-nav");
 
-	var	$window = $(window),
-		$body = $('body'),
-		$sidebar = $('#sidebar');
-
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ null,      '480px'  ]
+	// Close the mobile nav drawer after choosing a link, on outside click, or Escape.
+	if (drawer && check && nav) {
+		nav.addEventListener("click", function (event) {
+			if (event.target.closest("a")) check.checked = false;
 		});
 
-	// Hack: Enable IE flexbox workarounds.
-		if (browser.name == 'ie')
-			$body.addClass('is-ie');
-
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
-
-	// Forms.
-
-		// Hack: Activate non-input submits.
-			$('form').on('click', '.submit', function(event) {
-
-				// Stop propagation, default.
-					event.stopPropagation();
-					event.preventDefault();
-
-				// Submit form.
-					$(this).parents('form').submit();
-
-			});
-
-	// Sidebar.
-		if ($sidebar.length > 0) {
-
-			var $sidebar_a = $sidebar.find('a');
-
-			$sidebar_a
-				.addClass('scrolly')
-				.on('click', function() {
-
-					var $this = $(this);
-
-					// External link? Bail.
-						if ($this.attr('href').charAt(0) != '#')
-							return;
-
-					// Deactivate all links.
-						$sidebar_a.removeClass('active');
-
-					// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-						$this
-							.addClass('active')
-							.addClass('active-locked');
-
-				})
-				.each(function() {
-
-					var	$this = $(this),
-						id = $this.attr('href'),
-						$section = $(id);
-
-					// No section for this link? Bail.
-						if ($section.length < 1)
-							return;
-
-					// Scrollex.
-						$section.scrollex({
-							mode: 'middle',
-							top: '-20vh',
-							bottom: '-20vh',
-							initialize: function() {
-
-								// Deactivate section.
-									$section.addClass('inactive');
-
-							},
-							enter: function() {
-
-								// Activate section.
-									$section.removeClass('inactive');
-
-								// No locked links? Deactivate all links and activate this section's one.
-									if ($sidebar_a.filter('.active-locked').length == 0) {
-
-										$sidebar_a.removeClass('active');
-										$this.addClass('active');
-
-									}
-
-								// Otherwise, if this section's link is the one that's locked, unlock it.
-									else if ($this.hasClass('active-locked'))
-										$this.removeClass('active-locked');
-
-							}
-						});
-
-				});
-
-		}
-
-	// Scrolly.
-		$('.scrolly').scrolly({
-			speed: 1000,
-			offset: function() {
-
-				// If <=large, >small, and sidebar is present, use its height as the offset.
-					if (breakpoints.active('<=large')
-					&&	!breakpoints.active('<=small')
-					&&	$sidebar.length > 0)
-						return $sidebar.height();
-
-				return 0;
-
+		document.addEventListener("click", function (event) {
+			if (check.checked && !drawer.contains(event.target)) {
+				check.checked = false;
 			}
 		});
 
-	// Spotlights.
-		$('.spotlights > section')
-			.scrollex({
-				mode: 'middle',
-				top: '-10vh',
-				bottom: '-10vh',
-				initialize: function() {
+		document.addEventListener("keydown", function (event) {
+			if (event.key === "Escape" && check.checked) {
+				check.checked = false;
+				check.focus();
+			}
+		});
+	}
 
-					// Deactivate section.
-						$(this).addClass('inactive');
+	// Highlight the nav link matching the section currently in view.
+	var sections = document.querySelectorAll("main [id]");
+	var navLinks = nav ? nav.querySelectorAll("a[href^='#']") : [];
 
-				},
-				enter: function() {
+	if (sections.length && navLinks.length && "IntersectionObserver" in window) {
+		var linkFor = {};
+		navLinks.forEach(function (link) {
+			linkFor[link.getAttribute("href").slice(1)] = link;
+		});
 
-					// Activate section.
-						$(this).removeClass('inactive');
+		var observer = new IntersectionObserver(
+			function (entries) {
+				entries.forEach(function (entry) {
+					var link = linkFor[entry.target.id];
+					if (!link) return;
+					if (entry.isIntersecting) {
+						navLinks.forEach(function (l) { l.classList.remove("active"); });
+						link.classList.add("active");
+					}
+				});
+			},
+			{ rootMargin: "-45% 0px -50% 0px" }
+		);
 
-				}
-			})
-			.each(function() {
+		sections.forEach(function (section) {
+			if (linkFor[section.id]) observer.observe(section);
+		});
+	}
 
-				var	$this = $(this),
-					$image = $this.find('.image'),
-					$img = $image.find('img'),
-					x;
+	// Pause each section's decorative animation (dandelion, drifting seeds)
+	// while that section is scrolled out of view.
+	var animated = document.querySelectorAll(".hero, .section");
 
-				// Assign image.
-					$image.css('background-image', 'url(' + $img.attr('src') + ')');
-
-				// Set background position.
-					if (x = $img.data('position'))
-						$image.css('background-position', x);
-
-				// Hide <img>.
-					$img.hide();
-
+	if (animated.length && "IntersectionObserver" in window) {
+		var pauser = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				entry.target.classList.toggle("is-offscreen", !entry.isIntersecting);
 			});
+		});
 
-	// Features.
-		$('.features')
-			.scrollex({
-				mode: 'middle',
-				top: '-20vh',
-				bottom: '-20vh',
-				initialize: function() {
-
-					// Deactivate section.
-						$(this).addClass('inactive');
-
-				},
-				enter: function() {
-
-					// Activate section.
-						$(this).removeClass('inactive');
-
-				}
-			});
-
-})(jQuery);
+		animated.forEach(function (el) { pauser.observe(el); });
+	}
+})();
