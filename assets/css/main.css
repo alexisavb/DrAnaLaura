@@ -13,9 +13,12 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Tokens ---------- */
 :root {
-	--bg: #2a1f4d;
-	--bg-alt: #221a3f;
-	--bg-card: #362a5f;
+	/* Base ligeramente menos saturada que la original (#2a1f4d/#221a3f/#362a5f):
+	   mismo matiz y luminosidad, un toque más neutro — la doctora pidió sobrio,
+	   no un cambio de paleta. */
+	--bg: #2c2448;
+	--bg-alt: #241e3b;
+	--bg-card: #392f5a;
 	--fg: rgba(255, 255, 255, 0.78);
 	--fg-bold: #ffffff;
 	--fg-light: rgba(255, 255, 255, 0.6);
@@ -23,8 +26,12 @@ a { color: inherit; text-decoration: none; }
 
 	--accent1: #6b4bbd; /* violeta */
 	--accent2: #5860c9; /* azul-violeta */
-	--accent3: #b74e91; /* magenta — CTA / acentos generales */
-	--accent3-light: #d267a8;
+	/* Magenta desaturado a vino/berry apagado — antes #b74e91/#d267a8, muy
+	   "vivo" para el tono sobrio que quiere la doctora. Mismo matiz, menos
+	   saturación; contraste verificado: accent3 sobre blanco (.service-icon)
+	   ~5.5:1, accent3-light sobre --bg (nav activo) ~4.5:1. */
+	--accent3: #965473; /* vino apagado — CTA / acentos generales */
+	--accent3-light: #b37e97;
 	--accent-green: #2c7a6c; /* verde del logo (oscurecido para contraste AA) — WhatsApp */
 	--accent-green-light: #4fa894; /* verde del logo, tono real — hover */
 	--surface-light: #f7f7f7; /* blanco del logo */
@@ -543,6 +550,10 @@ a:focus-visible {
 	overflow: hidden;
 }
 .about-card img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+/* El logo no es una fotografía: recortarlo con object-fit: cover lo hacía ver
+   como una foto mal encuadrada junto a las fotos reales de las otras tarjetas.
+   Se enmarca en cambio, sobre el mismo blanco que ya trae el archivo. */
+.about-card--logo img { object-fit: contain; background: var(--surface-light); padding: 2em; }
 .about-card-body { padding: 1.25em 1.4em 1.5em; color: var(--fg); }
 .about-card ul { display: flex; flex-direction: column; gap: 0.5em; }
 .about-card li { padding-left: 1.1em; position: relative; }
@@ -592,26 +603,47 @@ a:focus-visible {
 	grid-template-columns: 1fr;
 	gap: 1.25em;
 }
+/* Las tarjetas de solo texto/ícono ya no van en caja — con relleno, borde y
+   radio idénticos en las seis se leían como un grid de dashboard. Una regla
+   superior fina basta para separarlas y deja que respiren sobre el fondo. */
 .contact-card {
-	background: var(--bg-card);
-	border: 1px solid var(--border);
-	border-radius: var(--radius);
-	padding: 1.5em;
+	padding: 1.5em 0;
+	border-top: 1px solid var(--border);
 }
 .contact-card > .icon { width: 1.75em; height: 1.75em; color: var(--accent3-light); margin-bottom: 0.6em; }
 .contact-card a:not(.button) { color: var(--fg-bold); font-weight: 600; }
 .contact-card a:not(.button):hover { color: var(--accent3-light); }
 .contact-card .button { margin-top: 0.85em; }
 
-.payments { grid-column: 1 / -1; }
+/* La tarjeta de pagos sí es un contenedor real (una "pared" de logos), no
+   texto suelto — conserva la caja. */
+.contact-card.payments {
+	grid-column: 1 / -1;
+	background: var(--bg-card);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 1.5em;
+}
 .logo-row {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 1.25em;
+	gap: 0.75em;
 	margin-top: 1em;
 }
-.logo-row img { height: 2.1em; width: auto; }
+/* Cada logo de marca vive en el mismo "chip" (alto, fondo y radio fijos) sin
+   importar su propio color o proporción — así la fila deja de verse como un
+   lote de assets descargados de sitios distintos (y "pluxee", gris oscuro,
+   deja de perderse contra el morado). */
+.logo-row img {
+	height: 1.8em;
+	width: auto;
+	max-width: 6.5em;
+	object-fit: contain;
+	background: var(--surface-light);
+	border-radius: var(--radius-sm);
+	padding: 0.55em 0.85em;
+}
 
 @media (min-width: 40em) {
 	.contact-grid { grid-template-columns: repeat(2, 1fr); }
