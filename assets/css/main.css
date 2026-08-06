@@ -768,6 +768,80 @@ a:focus-visible {
 	.service-price dd { text-align: right; }
 }
 
+/* ---------- Galería ----------
+ * Carrusel infinito: el track no usa clones ni índices — al avanzar mueve su
+ * primer elemento al final (y al revés para atrás), así nunca hay principio ni
+ * fin que alcanzar. Ver assets/js/main.js.
+ */
+.section-alt { background: var(--bg-alt); }
+
+.gallery {
+	position: relative;
+	max-width: var(--container);
+	margin: var(--space-md) auto 0;
+	padding: 0 1.25em;
+}
+/* Sin JS el carrusel no puede rotar, así que el viewport queda como una tira
+   desplazable con el dedo y las flechas —que no harían nada— no se muestran. */
+.gallery-viewport { overflow-x: auto; scroll-snap-type: x mandatory; }
+.gallery[data-gallery-ready] .gallery-viewport { overflow: hidden; }
+.gallery-item { scroll-snap-align: start; }
+.gallery-nav { display: none; }
+.gallery[data-gallery-ready] .gallery-nav { display: flex; }
+.gallery-track {
+	display: flex;
+	gap: 1em;
+	/* Sin transición por defecto: la pone el JS solo al animar, para poder
+	   reacomodar los elementos sin que se vea el salto. */
+	will-change: transform;
+}
+.gallery-item { flex: 0 0 100%; }
+.gallery-item figure { margin: 0; }
+.gallery-item img,
+.gallery-item video {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: var(--radius);
+	background: var(--bg-card);
+	display: block;
+}
+/* Los videos se comportan igual que las fotos; solo se les deja el control
+   nativo y se pausan al salir de vista (lo hace el JS). */
+.gallery-item--video video { cursor: pointer; }
+
+.gallery-nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+	align-items: center;
+	justify-content: center;
+	width: 2.75em;
+	height: 2.75em;
+	border-radius: 50%;
+	border: 1px solid var(--border);
+	background: rgba(41, 31, 67, 0.82);
+	backdrop-filter: blur(6px);
+	color: var(--fg-bold);
+	cursor: pointer;
+	transition: background var(--transition), border-color var(--transition);
+}
+.gallery-nav:hover { background: var(--accent3); border-color: var(--accent3); }
+.gallery-nav .icon { width: 1.35em; height: 1.35em; }
+.gallery-prev { left: 1.9em; }
+.gallery-next { right: 1.9em; }
+
+@media (min-width: 40em) {
+	.gallery-item { flex: 0 0 calc((100% - 1em) / 2); }
+}
+@media (min-width: 60em) {
+	.gallery-item { flex: 0 0 calc((100% - 2em) / 3); }
+	.gallery-nav { width: 3.1em; height: 3.1em; }
+	.gallery-prev { left: -0.4em; }
+	.gallery-next { right: -0.4em; }
+}
+
 /* ---------- Contacto ----------
  * Es la sección donde la gente agenda, así que no puede tener el mismo peso
  * repartido en seis bloques iguales: agendar manda, el resto acompaña.

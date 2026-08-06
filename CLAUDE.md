@@ -42,6 +42,16 @@ The illustration behind `#inicio` is a hand-written inline SVG (`.dandelion`, vi
 - The whole plant reads as wind-blown: `dl-sway`/`dl-bend` never cross zero, they hold a lean to the right (the direction the seeds fly) and only vary how far it gives. If you ever mirror the composition, flip the sign on both or the plant will lean into the wind.
 - Everything pauses off-screen via `.hero.is-offscreen` (set from `main.js`) and is disabled under `prefers-reduced-motion` — the global `animation-duration: 0.01ms` rule alone would make the seeds flicker, so they get an explicit `display: none`.
 
+## The gallery carousel (`#galeria`)
+
+Infinite carousel of photos **and videos**, driven from `main.js`. Worth knowing:
+
+- **It loops by rotating the DOM, not by cloning or counting.** To advance, the track slides one slot and then its first child is moved to the end with the transition switched off; going back does the reverse (last child moved to the front, jump, then slide). There is therefore no first or last slide to run into, and no index to keep in sync — but it does mean **the DOM order of `.gallery-item` changes as the user browses**, so never rely on it.
+- `data-gallery-ready` is set by JS once the carousel is wired. Until then the CSS keeps the arrows hidden and leaves the viewport as a plain horizontal scroller — without JS the arrows would be decoration that does nothing.
+- Videos are paused on every slide change; otherwise one would keep playing off-screen.
+- Items shown at once: 1 on mobile, 2 from `40em`, 3 from `60em`. With fewer than 4 items the rotation is visible on desktop.
+- Content lives in `images/galeria/`, which has its own `LEEME.md` with the markup to copy for a photo or a video. The `demo-*.webp` files are generated placeholders meant to be deleted.
+
 ## Drifting seeds in the other sections (`.drift`)
 
 `#servicios` and `#contacto` each open with a `.drift` div holding 14 `.drift-seed` SVGs that reuse the hero's `#dl-seed` symbol and its `.dl-fly*` animation classes. `#sobre-mi` deliberately has none — it is the most image- and text-heavy section and the seeds only added noise there. Things that are easy to get wrong here:

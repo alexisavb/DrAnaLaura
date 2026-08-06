@@ -61,6 +61,8 @@
 
 		<!-- Icon sprite (inline SVG, replaces Font Awesome) -->
 		<svg style="display:none" aria-hidden="true">
+			<symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></symbol>
+			<symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></symbol>
 			<symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
 				<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
 			</symbol>
@@ -157,6 +159,7 @@
 							<li><a href="#inicio">Inicio</a></li>
 							<li><a href="#sobre-mi">Sobre Mí</a></li>
 							<li><a href="#servicios">Servicios</a></li>
+							<li><a href="#galeria">Galería</a></li>
 							<li><a href="#contacto">Contacto</a></li>
 						</ul>
 					</nav>
@@ -477,6 +480,60 @@
 							</div>
 						</li>
 					</ul>
+				</div>
+			</section>
+
+			<!-- Galería -->
+			<section id="galeria" class="section section-alt">
+				<div class="section-inner">
+					<p class="eyebrow">Consultorio</p>
+					<h2>Galería</h2>
+					<p>Conoce el espacio donde atendemos a ti y a tu familia.</p>
+				</div>
+
+				<!-- Carrusel infinito: el track rota sus propios elementos, sin clones.
+				     Admite fotos y videos; ver .gallery-item--video en el CSS. -->
+				<div class="gallery" data-gallery aria-roledescription="carrusel" aria-label="Galería del consultorio">
+					<div class="gallery-viewport">
+						<ul class="gallery-track">
+							<li class="gallery-item">
+								<figure>
+									<img src="images/galeria/demo-1.webp" alt="Foto demo 1 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+								</figure>
+							</li>
+							<li class="gallery-item">
+								<figure>
+									<img src="images/galeria/demo-2.webp" alt="Foto demo 2 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+								</figure>
+							</li>
+							<li class="gallery-item">
+								<figure>
+									<img src="images/galeria/demo-3.webp" alt="Foto demo 3 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+								</figure>
+							</li>
+							<li class="gallery-item">
+								<figure>
+									<img src="images/galeria/demo-4.webp" alt="Foto demo 4 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+								</figure>
+							</li>
+							<li class="gallery-item">
+								<figure>
+									<img src="images/galeria/demo-5.webp" alt="Foto demo 5 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+								</figure>
+							</li>
+							<li class="gallery-item">
+								<figure>
+									<img src="images/galeria/demo-6.webp" alt="Foto demo 6 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+								</figure>
+							</li>
+						</ul>
+					</div>
+					<button class="gallery-nav gallery-prev" type="button" aria-label="Ver anterior">
+						<svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+					</button>
+					<button class="gallery-nav gallery-next" type="button" aria-label="Ver siguiente">
+						<svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+					</button>
 				</div>
 			</section>
 
