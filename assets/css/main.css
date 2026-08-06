@@ -768,60 +768,111 @@ a:focus-visible {
 	.service-price dd { text-align: right; }
 }
 
-/* ---------- Contacto ---------- */
-.contact-grid {
-	margin-top: 2em;
+/* ---------- Contacto ----------
+ * Es la sección donde la gente agenda, así que no puede tener el mismo peso
+ * repartido en seis bloques iguales: agendar manda, el resto acompaña.
+ */
+.contact-layout {
+	margin-top: var(--space-md);
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 1.25em;
+	gap: var(--space-md);
 }
-/* Las tarjetas de solo texto/ícono ya no van en caja — con relleno, borde y
-   radio idénticos en las seis se leían como un grid de dashboard. Una regla
-   superior fina basta para separarlas y deja que respiren sobre el fondo. */
-.contact-card {
-	padding: 1.5em 0;
-	border-top: 1px solid var(--border);
-}
-.contact-card > .icon { width: 1.75em; height: 1.75em; color: var(--accent3-light); margin-bottom: 0.6em; }
-.contact-card a:not(.button) { color: var(--fg-bold); font-weight: 600; }
-.contact-card a:not(.button):hover { color: var(--accent3-light); }
-.contact-card .button { margin-top: 0.85em; }
 
-/* La tarjeta de pagos sí es un contenedor real (una "pared" de logos), no
-   texto suelto — conserva la caja. */
-.contact-card.payments {
-	grid-column: 1 / -1;
+/* Panel de conversión: sí lleva superficie propia — aquí una caja no es
+   "de dashboard", es la que le da presencia a la acción principal. */
+.contact-primary {
 	background: var(--bg-card);
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
-	padding: 1.5em;
+	padding: 1.75em;
 }
-.logo-row {
+.contact-primary > p { color: var(--fg); max-width: 32em; }
+.contact-cta {
+	width: 100%;
+	margin-top: 1.25em;
+	font-size: 1.05em;
+	padding: 1em 1.5em;
+}
+.contact-cta .icon { width: 1.35em; height: 1.35em; }
+.contact-or {
+	margin: 1.75em 0 0.85em;
+	font-size: 0.72em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	color: var(--fg-light);
+}
+
+/* Teléfonos como filas grandes y tocables: son la segunda vía de conversión
+   y antes eran una línea de texto perdida entre otras cinco. */
+.contact-phones { display: flex; flex-direction: column; gap: 0.5em; }
+.contact-phones a {
 	display: flex;
-	flex-wrap: wrap;
 	align-items: center;
-	gap: 0.75em;
-	margin-top: 1em;
+	gap: 0.85em;
+	min-height: 44px;
+	padding: 0.7em 0.9em;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	color: var(--fg-bold);
+	transition: border-color var(--transition), background var(--transition);
 }
-/* Cada logo de marca vive en el mismo "chip" (alto, fondo y radio fijos) sin
-   importar su propio color o proporción — así la fila deja de verse como un
-   lote de assets descargados de sitios distintos (y "pluxee", gris oscuro,
-   deja de perderse contra el morado). */
+.contact-phones a:hover { border-color: var(--accent3-light); background: rgba(255, 255, 255, 0.04); }
+.contact-phones .icon { width: 1.15em; height: 1.15em; color: var(--accent3-light); }
+/* El número no se ancla a la derecha hasta los 60em: antes de ese ancho los
+   botones flotantes de teléfono/WhatsApp caen justo encima. Mientras tanto va
+   junto a su etiqueta, con min-width para que ambos números queden alineados. */
+.contact-phone-label { color: var(--fg-light); font-size: 0.9em; min-width: 6.5em; }
+.contact-phone-number { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Datos de apoyo: hairlines, sin caja */
+.contact-aside { display: grid; grid-template-columns: 1fr; gap: 1.5em; }
+.contact-item { padding-top: 1.25em; border-top: 1px solid var(--border); }
+.contact-item > .icon { width: 1.6em; height: 1.6em; color: var(--accent3-light); margin-bottom: 0.5em; }
+.contact-item a { color: var(--fg-bold); font-weight: 600; }
+.contact-item a:hover { color: var(--accent3-light); }
+.contact-link { display: inline-block; margin-top: 0.75em; border-bottom: 1px solid var(--accent3-light); }
+
+.payments {
+	background: var(--bg-card);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 1.75em;
+}
+/* Rejilla en vez de flex-wrap: con 13 logos el ajuste natural dejaba dos
+   huérfanos en la última fila. Columnas iguales reparten mejor y hacen que la
+   fila se lea como un sistema, no como logos apilados. */
+.logo-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(7.5em, 1fr));
+	gap: 0.85em;
+	margin-top: 1.25em;
+}
+/* Cada logo vive en el mismo "chip" (alto, fondo y radio fijos) sin importar
+   su color o proporción: así la fila deja de verse como un lote de assets de
+   fuentes distintas, y "pluxee" —gris oscuro— no se pierde contra el morado.
+   Altura generosa: a 1.8em las marcas quedaban ilegibles. */
 .logo-row img {
-	height: 1.8em;
-	width: auto;
-	max-width: 6.5em;
+	width: 100%;
+	height: 3.4em;
 	object-fit: contain;
 	background: var(--surface-light);
 	border-radius: var(--radius-sm);
-	padding: 0.55em 0.85em;
+	padding: 0.7em 1em;
 }
 
 @media (min-width: 40em) {
-	.contact-grid { grid-template-columns: repeat(2, 1fr); }
+	.contact-aside { grid-template-columns: repeat(2, 1fr); gap: 1.5em 2.5em; }
+	.contact-cta { width: auto; }
 }
 @media (min-width: 60em) {
-	.contact-grid { grid-template-columns: repeat(3, 1fr); }
+	/* El panel de agendar ocupa su propia columna y queda a la altura del ojo */
+	.contact-layout { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 3em; }
+	.contact-primary { align-self: start; }
+	.payments { grid-column: 1 / -1; }
+	.contact-phone-label { min-width: 0; }
+	.contact-phone-number { margin-left: auto; }
 }
 
 /* ---------- Footer ---------- */

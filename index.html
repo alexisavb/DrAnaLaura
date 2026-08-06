@@ -503,45 +503,65 @@
 					<p class="eyebrow">Consultorio en Puebla</p>
 					<h2>Ponte en Contacto</h2>
 					<p>Agenda tu cita y da el primer paso hacia una vida sin alergias. Estamos aquí para ayudarte.</p>
-					<div class="contact-grid">
-						<div class="contact-card">
-							<svg class="icon" aria-hidden="true"><use href="#icon-map-pin"></use></svg>
-							<h3>Dirección</h3>
-							<p>Av 35 Ote 2804-A, Col. Alseseca,<br>Puebla, Pue. México</p>
-							<a class="button ghost" href="https://maps.app.goo.gl/12M8J3r8bR2cNiDx9" target="_blank" rel="noopener">Abrir en Google Maps</a>
+					<div class="contact-layout">
+
+						<!-- Bloque principal: lo que la gente viene a hacer aquí es agendar -->
+						<div class="contact-primary">
+							<h3>Agenda tu cita</h3>
+							<p>Escríbenos por WhatsApp y te confirmamos disponibilidad el mismo día.</p>
+							<a href="https://wa.me/2227291799" target="_blank" rel="noopener" onclick="gtag_report_conversion();" class="button whatsapp contact-cta">
+								<svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+								Escríbenos por WhatsApp
+							</a>
+
+							<p class="contact-or">O llámanos directamente</p>
+							<ul class="contact-phones">
+								<li>
+									<a href="tel:2227291799" onclick="gtag_report_conversion();">
+										<svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+										<span class="contact-phone-label">Celular</span>
+										<span class="contact-phone-number">2227291799</span>
+									</a>
+								</li>
+								<li>
+									<a href="tel:2222646580" onclick="gtag_report_conversion();">
+										<svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+										<span class="contact-phone-label">Consultorio</span>
+										<span class="contact-phone-number">(222)2646580</span>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<div class="contact-card">
-							<svg class="icon" aria-hidden="true"><use href="#icon-clock"></use></svg>
-							<h3>Horarios</h3>
-							<p>
-								Lunes a Viernes: 11:00 a 19:00<br>
-								Sábado: 11:00 a 16:00
-							</p>
+
+						<!-- Dónde, cuándo y demás vías: acompañan, no compiten -->
+						<div class="contact-aside">
+							<div class="contact-item">
+								<svg class="icon" aria-hidden="true"><use href="#icon-map-pin"></use></svg>
+								<h3>Dirección</h3>
+								<p>Av 35 Ote 2804-A, Col. Alseseca,<br>Puebla, Pue. México</p>
+								<a class="contact-link" href="https://maps.app.goo.gl/12M8J3r8bR2cNiDx9" target="_blank" rel="noopener">Abrir en Google Maps</a>
+							</div>
+							<div class="contact-item">
+								<svg class="icon" aria-hidden="true"><use href="#icon-clock"></use></svg>
+								<h3>Horarios</h3>
+								<p>
+									Lunes a Viernes: 11:00 a 19:00<br>
+									Sábado: 11:00 a 16:00
+								</p>
+							</div>
+							<div class="contact-item">
+								<svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg>
+								<h3>Correo</h3>
+								<p><a href="mailto:dra.analau.alergo@gmail.com">dra.analau.alergo@gmail.com</a></p>
+							</div>
+							<div class="contact-item">
+								<svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>
+								<h3>Social</h3>
+								<p><a href="https://www.instagram.com/dra.analau.alergo" target="_blank" rel="noopener">@dra.analau.alergo</a></p>
+							</div>
 						</div>
-						<div class="contact-card">
-							<svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
-							<h3>WhatsApp</h3>
-							<a href="https://wa.me/2227291799" target="_blank" rel="noopener" onclick="gtag_report_conversion();" class="button whatsapp">Escríbenos</a>
-						</div>
-						<div class="contact-card">
-							<svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
-							<h3>Teléfonos</h3>
-							<p>
-								<a href="tel:2227291799" onclick="gtag_report_conversion();">Celular: 2227291799</a><br>
-								<a href="tel:2222646580" onclick="gtag_report_conversion();">Consultorio: (222)2646580</a>
-							</p>
-						</div>
-						<div class="contact-card">
-							<svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg>
-							<h3>Correo</h3>
-							<a href="mailto:dra.analau.alergo@gmail.com">dra.analau.alergo@gmail.com</a>
-						</div>
-						<div class="contact-card">
-							<svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>
-							<h3>Social</h3>
-							<a href="https://www.instagram.com/dra.analau.alergo" target="_blank" rel="noopener">@dra.analau.alergo</a>
-						</div>
-						<div class="contact-card payments">
+
+						<div class="payments">
 							<h3>Aceptamos las siguientes formas de pago</h3>
 							<div class="logo-row">
 								<img src="images/Pagos/efectivo.svg" alt="Efectivo" width="43" height="30" loading="lazy" />
