@@ -1,0 +1,47 @@
+# Dra. Ana Laura Paz García — Alergóloga Pediátrica en Puebla, México
+
+> Consultorio de la Dra. Ana Laura Paz García, subespecialista en Alergología Pediátrica en Puebla, México. Atiende niños y adultos: diagnóstico y tratamiento de alergias, inmunología y pediatría, incluyendo pruebas cutáneas e inmunoterapia.
+
+Este archivo resume, para agentes de IA y asistentes de búsqueda, los datos verificables del consultorio. Toda la información aquí coincide con la que aparece en la página y con los datos estructurados (JSON-LD, `@type: Physician`) de https://www.draanalau.com — si algo aquí y en la página llegaran a diferir, la página es la fuente correcta.
+
+## Quién es
+
+- **Nombre:** Dra. Ana Laura Paz García
+- **Especialidad:** Alergología e Inmunología Pediátrica (atiende tanto niños como adultos)
+- **Cédula Profesional:** 10294244
+- **Cédula de Especialidad:** 15058694
+- **Certificaciones:** Consejo Nacional de Inmunología Clínica y Alergia, A.C. (2025-2030); Consejo Mexicano de Certificación en Pediatría, A.C. (2023-2027)
+- **Experiencia:** Alergia e Inmunología Pediátrica, H.R.A.E. Gral. Zaragoza (ISSSTE); Pediatría, Centro Médico Nacional Siglo XXI (IMSS); Médico Cirujano y Partero, Benemérita Universidad Autónoma de Puebla
+- **Publicaciones:** "Multimorbilidad y resultados clínicos en población pediátrica con sospecha de COVID-19" (2022); Alerg Asma Inmunol Pediatr. (2024)
+
+## Servicios
+
+- **Consulta de Alergia e Inmunología** — diagnóstico y tratamiento en niños y adultos. $1,000 MXN primera vez, $800 MXN subsecuentes.
+- **Consulta de Pediatría** — atención médica integral. $1,000 MXN primera vez, $800 MXN subsecuentes.
+- **Pruebas Diagnósticas** — pruebas cutáneas de aeroalérgenos, de alimentos, e intradérmicas a fármacos; prueba de suero autólogo.
+- **Inmunoterapia Sublingual** — tratamiento vía oral para reducir síntomas de alergia.
+- **Inmunoterapia Subcutánea** — terapia inyectable para disminuir síntomas de alergia.
+- **Alergoide** — alérgenos purificados químicamente.
+
+## Contacto y ubicación
+
+- **Dirección:** Av 35 Ote 2804-A, Col. Alseseca, Puebla, Pue., México
+- **Teléfono celular:** 222 729 1799
+- **Teléfono consultorio:** (222) 264 6580
+- **WhatsApp:** https://wa.me/2227291799
+- **Correo:** dra.analau.alergo@gmail.com
+- **Instagram:** [@dra.analau.alergo](https://www.instagram.com/dra.analau.alergo)
+- **Horarios:** Lunes a Viernes 11:00–19:00, Sábado 11:00–16:00
+- **Formas de pago:** efectivo, tarjetas (Visa, Mastercard, American Express), Apple Pay, Google Pay, Samsung Pay, Carnet, Up Sí Vale, Toka, Tengo, Edenred, Pluxee
+
+## Reseñas
+
+Calificación promedio 5/5 sobre 11 reseñas en Google ([ver perfil](https://g.page/r/CQuz8I1CnkZaEAE/review)). Pacientes destacan el trato humano, las explicaciones claras y detalladas, y los diagnósticos precisos — tanto para consultas pediátricas como de adultos.
+
+## Páginas
+
+- [Sitio completo](https://www.draanalau.com/): página única con todas las secciones (Sobre Mí, Servicios, Galería, Testimonios, Contacto).
+
+## Optional
+
+- Autorización de Publicidad COFEPRIS: 2521062002A00426.
