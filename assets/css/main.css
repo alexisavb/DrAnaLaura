@@ -877,7 +877,14 @@ a:focus-visible {
 }
 .testimonial footer { font-size: 0.9em; color: var(--fg-light); }
 .testimonial cite { font-style: normal; font-weight: 600; color: var(--fg-bold); }
-.testimonial-source { margin-left: 0.4em; }
+/* Cada cita enlaza a su reseña puntual en Google — no a un perfil genérico —
+   así cualquiera puede verificarla con un clic. Se marca como enlace real. */
+.testimonial-source {
+	margin-left: 0.4em;
+	color: var(--fg-light);
+	border-bottom: 1px solid var(--border);
+}
+.testimonial-source:hover { color: var(--accent3-light); border-color: var(--accent3-light); }
 
 .testimonials-cta { margin-top: var(--space-lg); }
 
