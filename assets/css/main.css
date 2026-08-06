@@ -38,6 +38,7 @@ a { color: inherit; text-decoration: none; }
 	--fg-bold: #ffffff;
 	--fg-light: rgba(255, 255, 255, 0.6);
 	--border: rgba(255, 255, 255, 0.14);
+	--border-on-light: rgba(42, 31, 77, 0.14);   /* hairlines sobre el bloque claro */
 
 	--accent1: #6b4bbd; /* violeta */
 	--accent2: #5860c9; /* azul-violeta */
@@ -628,28 +629,85 @@ a:focus-visible {
 	.about-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ---------- Servicios ---------- */
-.services-grid {
-	margin-top: 2em;
+/* ---------- Servicios ----------
+ * Lista editorial en vez de rejilla de tarjetas: seis recuadros blancos
+ * idénticos leían como catálogo de plantilla. Cada servicio es una fila
+ * separada por hairline — el mismo lenguaje que ya usa Contacto.
+ */
+.service-list {
+	margin-top: var(--space-md);
+	border-top: 1px solid var(--border-on-light);
+}
+.service-item {
 	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1.25em;
+	grid-template-columns: auto minmax(0, 1fr);
+	column-gap: 1.1em;
+	row-gap: 1em;
+	padding: 1.75em 0;
+	border-bottom: 1px solid var(--border-on-light);
 }
-.service-card {
-	background: #ffffff;
-	border: 1px solid rgba(42, 31, 77, 0.12);
-	border-radius: var(--radius);
-	padding: 1.5em;
+.service-icon {
+	width: 1.5em;
+	height: 1.5em;
+	color: var(--accent3);
+	margin-top: 0.15em;   /* alinea el ícono con la línea base del título */
 }
-.service-icon { width: 2.25em; height: 2.25em; color: var(--accent3); margin-bottom: 0.75em; }
-.service-price-label { margin-bottom: 0.35em; }
-.service-card ul { display: flex; flex-direction: column; gap: 0.35em; }
+.service-main { grid-column: 2; }
+.service-main p { margin-bottom: 0; max-width: 42em; }
+.service-sublist { display: flex; flex-direction: column; gap: 0.4em; }
+.service-sublist li { padding-left: 1.1em; position: relative; }
+.service-sublist li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.6em;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: var(--accent-green);
+}
 
-@media (min-width: 40em) {
-	.services-grid { grid-template-columns: repeat(2, 1fr); }
+/* Precios: en móvil van bajo la descripción; en desktop se alinean a la
+   derecha, que es donde el ojo los busca en una lista de servicios. */
+.service-price { grid-column: 2; }
+.service-price-label {
+	font-size: 0.72em;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	color: var(--fg-on-light-muted);
+	margin-bottom: 0.5em;
 }
+/* Rejilla de dos columnas (display: contents disuelve los <div> de cada par)
+   para que todas las cifras queden alineadas entre sí. En móvil se agrupa a la
+   izquierda: pegadas al borde derecho quedaban tapadas por los botones
+   flotantes de teléfono/WhatsApp, justo sobre el dato más importante. */
+.service-price dl {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: start;
+	column-gap: 1.5em;
+	row-gap: 0.3em;
+}
+.service-price dl > div { display: contents; }
+.service-price dt { color: var(--fg-on-light-muted); }
+.service-price dd {
+	margin: 0;
+	color: var(--fg-on-light);
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 48em) {
+	.service-item { grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 2.5em; }
+	.service-price { grid-column: 3; grid-row: 1; }
+}
+/* La alineación a la derecha espera a los 60em, que es exactamente donde se
+   ocultan los botones flotantes (.float-actions). Antes de ese ancho las
+   cifras quedarían debajo de ellos. */
 @media (min-width: 60em) {
-	.services-grid { grid-template-columns: repeat(3, 1fr); }
+	.service-price-label { text-align: right; }
+	.service-price dl { justify-content: end; }
+	.service-price dd { text-align: right; }
 }
 
 /* ---------- Contacto ---------- */
