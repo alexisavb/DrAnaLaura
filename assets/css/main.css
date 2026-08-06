@@ -107,6 +107,18 @@ h3 { font-size: 1.2em; line-height: 1.3; letter-spacing: -0.005em; margin-bottom
 p { margin-bottom: 1em; }
 p:last-child { margin-bottom: 0; }
 
+/* Etiqueta breve sobre el título de sección: orienta al lector y da el aire
+   editorial que separa un sitio diseñado de una plantilla. */
+.eyebrow {
+	font-size: 0.72em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: var(--accent3-light);
+	margin-bottom: 1em;
+}
+.section-light .eyebrow { color: var(--accent3); }
+
 /* ---------- Layout helpers ---------- */
 .section { padding: var(--section-pad) 1.25em; position: relative; overflow: hidden; }
 .section-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
@@ -606,6 +618,16 @@ a:focus-visible {
 	object-fit: cover;
 	border-radius: var(--radius);
 }
+
+/*
+ * Las tres fotos vienen de sesiones distintas (luz verde de ventana, blanco
+ * clínico frío, madera cálida) y juntas se leían como banco de imágenes. Una
+ * misma corrección leve las empareja sin retocar los archivos: es solo CSS,
+ * así que se revierte borrando esta regla. No se aplica al logo (es línea, no
+ * foto) ni a los chips de pago (son marcas de terceros).
+ */
+.about-portrait,
+.about-block img { filter: saturate(0.85) sepia(0.06) contrast(1.02); }
 .about-name { font-size: clamp(1.35em, 2vw + 0.8em, 1.75em); margin-bottom: 0.5em; }
 .about-bio { color: var(--fg); max-width: 42em; }
 
