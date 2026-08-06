@@ -886,6 +886,20 @@ a:focus-visible {
 }
 .testimonial-source:hover { color: var(--accent3-light); border-color: var(--accent3-light); }
 
+/* La sección vive sobre fondo claro (ver alternancia oscuro/claro de las
+   secciones): el blanco de --fg-bold/--fg-light se volvería invisible, así
+   que se reusan los mismos tokens "on-light" que ya usa Servicios. */
+.section-light .testimonial { border-color: var(--border-on-light); }
+.section-light .testimonial-stars { color: var(--accent-green); }
+.section-light .testimonial blockquote,
+.section-light .testimonial cite { color: var(--fg-on-light); }
+.section-light .testimonial footer,
+.section-light .testimonial-source { color: var(--fg-on-light-muted); }
+.section-light .testimonial-source { border-color: var(--border-on-light); }
+.section-light .testimonial-source:hover { color: var(--accent3); border-color: var(--accent3); }
+.section-light .testimonials-cta.button.ghost { border-color: var(--border-on-light); color: var(--fg-on-light); }
+.section-light .testimonials-cta.button.ghost:hover { border-color: var(--accent3); color: var(--accent3); }
+
 .testimonials-cta { margin-top: var(--space-lg); }
 
 @media (min-width: 40em) {
