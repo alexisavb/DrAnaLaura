@@ -456,6 +456,30 @@ a:focus-visible {
 .hero-subtitle strong { font-weight: 600; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85em; margin-top: 1.5em; }
 
+/* Foto de la doctora: en móvil cae después de .hero-copy (debajo del texto,
+   sin grid); en desktop el media query de 60em la reordena a la izquierda.
+   Reusa el mismo archivo que .about-portrait, así el navegador solo lo
+   descarga una vez. */
+.hero-photo {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	object-position: 50% 22%;
+	border-radius: var(--radius);
+	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+	filter: saturate(0.85) sepia(0.06) contrast(1.02);
+	margin-top: 1.75em;
+}
+.hero-note {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	margin-top: 1.1em;
+	font-size: 0.85em;
+	color: var(--fg-light);
+}
+.hero-note .icon { width: 1.1em; height: 1.1em; }
+
 /* ---------- Diente de león animado (decorativo) ---------- */
 .hero-art {
 	position: absolute;
@@ -609,27 +633,29 @@ a:focus-visible {
 	.dandelion { height: 112%; right: -1em; opacity: 0.72; }
 }
 /*
- * Desktop: composición espejo de la foto de referencia — la planta ocupa desde
- * el centro hacia la izquierda y los vilanos cruzan el ancho completo hacia la
- * derecha; el texto se corre a la derecha, sobre la parte opaca del velo.
+ * Desktop: la foto de la doctora pasa a ser el elemento de impacto, a la
+ * izquierda; el diente de león ya no se espeja — se queda anclado a la
+ * derecha (misma posición que trae desde los 40em) y vive detrás del texto,
+ * no como pieza aparte. .hero-photo sigue después de .hero-copy en el HTML
+ * (así en móvil cae debajo del texto); aquí solo se reordena con `order`.
  */
 @media (min-width: 60em) {
-	.hero {
-		background:
-			radial-gradient(60em 40em at 18% -10%, rgba(107, 75, 189, 0.45), transparent),
-			var(--bg);
+	.hero-inner {
+		max-width: var(--container);
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		align-items: center;
+		gap: 3.5em;
 	}
-	.hero::after {
-		background: linear-gradient(260deg, var(--bg) 2%, rgba(42, 31, 77, 0.6) 30%, rgba(42, 31, 77, 0) 62%);
+	.hero-copy { max-width: 34em; order: 2; }
+	.hero-photo {
+		order: 1;
+		aspect-ratio: 4 / 5;
+		height: 100%;
+		max-height: 30em;
+		margin-top: 0;
+		object-position: 50% 15%;
 	}
-	.hero-inner { max-width: var(--container); }
-	.hero-copy { max-width: 34em; margin-left: auto; }
-	.hero-art {
-		-webkit-mask-image: radial-gradient(130% 112% at 26% 36%, #000 34%, rgba(0, 0, 0, 0.6) 64%, transparent 90%);
-		mask-image: radial-gradient(130% 112% at 26% 36%, #000 34%, rgba(0, 0, 0, 0.6) 64%, transparent 90%);
-	}
-	.dandelion { top: -6%; right: auto; left: 0; height: 138%; opacity: 0.95; }
-	.dl-flyers { --travel: 520px; --rise: -150px; }
 }
 
 /* ---------- Sobre Mí ----------
@@ -870,19 +896,35 @@ a:focus-visible {
 	.gallery-next { right: -0.4em; }
 }
 
-/* ---------- Testimonios ---------- */
-.testimonials-grid {
-	margin-top: var(--space-md);
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 2.5em;
+/* ---------- Testimonios ----------
+ * Mismo carrusel que #galeria (.gallery/.gallery-track/.gallery-item, ver
+ * arriba) — solo cambia lo que va dentro de cada .gallery-item. .testimonial
+ * se estira a la altura de la tarjeta más alta de su fila (el track ya hace
+ * flex/stretch) y queda en columna para que el footer no quede "flotando"
+ * cuando la reseña de al lado es más larga. */
+/* Las flechas del carrusel flotan sobre el propio contenido en todos los
+   anchos (igual que en la Galería, donde flotan sobre la foto); ahí no
+   estorban, pero aquí taparían palabras. Este padding deja el texto fuera de
+   su radio sin tocar el borde superior, que sigue de punta a punta. El valor
+   cambia porque las flechas también cambian de posición/tamaño en 60em (ver
+   .gallery-prev/.gallery-next/.gallery-nav más abajo). */
+.testimonial {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1.5em 5em 0;
+	border-top: 1px solid var(--border);
 }
-.testimonial { padding-top: 1.5em; border-top: 1px solid var(--border); }
+@media (min-width: 60em) {
+	.testimonial { padding-left: 3.25em; padding-right: 3.25em; }
+}
 .testimonial-stars { display: flex; gap: 0.2em; color: var(--accent-green-light); margin-bottom: 0.85em; }
 .testimonial-stars .icon { width: 1.05em; height: 1.05em; }
 /* La cita en serif, como los títulos: es la pieza de contenido que más se
-   beneficia de un trazo editorial en vez de la sans utilitaria del cuerpo. */
+   beneficia de un trazo editorial en vez de la sans utilitaria del cuerpo.
+   flex: 1 empuja el footer al fondo de la tarjeta sin importar el largo. */
 .testimonial blockquote {
+	flex: 1;
 	margin: 0 0 1em;
 	font-family: var(--font-display);
 	font-size: 1.15em;
@@ -917,9 +959,14 @@ a:focus-visible {
 
 .testimonials-cta { margin-top: var(--space-lg); }
 
-@media (min-width: 40em) {
-	.testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 2em; }
+/* Las flechas del carrusel nacieron oscuras para la Galería (fondo oscuro);
+   aquí la sección es clara, así que se invierten para seguir con contraste. */
+.section-light .gallery-nav {
+	background: rgba(255, 255, 255, 0.88);
+	border-color: var(--border-on-light);
+	color: var(--fg-on-light);
 }
+.section-light .gallery-nav:hover { background: var(--accent3); border-color: var(--accent3); color: #fff; }
 
 /* ---------- Preguntas Frecuentes ----------
  * <details>/<summary> nativos: acordeón accesible por teclado y funcional sin
