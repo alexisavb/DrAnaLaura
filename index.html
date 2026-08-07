@@ -141,6 +141,96 @@
 			]
 			}
 		</script>
+
+		<!-- Structured Data para las Preguntas Frecuentes (debe coincidir palabra por palabra con #faq) -->
+		<script type="application/ld+json">
+			{
+			"@context": "http://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": [
+			 {
+			  "@type": "Question",
+			  "name": "¿Qué especialidad tiene la Dra. Ana Laura Paz García?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "Es subespecialista en Alergología e Inmunología Pediátrica, certificada por el Consejo Nacional de Inmunología Clínica y Alergia y por el Consejo Mexicano de Certificación en Pediatría. Atiende tanto a niños como a adultos."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Cuánto cuesta la consulta?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "La primera consulta tiene un costo de $1,000.00 MXN y las subsecuentes de $800.00 MXN, tanto para Alergia e Inmunología como para Pediatría."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Qué días y horarios atienden?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "Lunes a viernes de 11:00 a 19:00 y sábados de 11:00 a 16:00."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Cómo agendo una cita?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "Por WhatsApp al 222 729 1799, con confirmación de disponibilidad el mismo día, o llamando directamente al consultorio al (222) 264 6580."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Qué formas de pago aceptan?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "Efectivo, tarjetas Visa, MasterCard y American Express, Apple Pay, Google Pay, Samsung Pay, Carnet, Up Sí Vale, Toka, Tengo, Edenred y Pluxee."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Qué pruebas diagnósticas realizan?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "Pruebas cutáneas de aeroalérgenos, de alimentos e intradérmicas a fármacos, además de prueba de suero autólogo."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Ofrecen tratamiento para las alergias, no solo diagnóstico?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "Sí: inmunoterapia sublingual (vía oral), inmunoterapia subcutánea (inyectable) y alergoide con alérgenos purificados químicamente."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Dónde está ubicado el consultorio?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "En Av 35 Ote 2804-A, Col. Alseseca, Puebla, Pue., México."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Solo atienden niños o también adultos?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "Sí, atiende tanto a niños como a adultos con alergias e inmunología."
+			  }
+			 },
+			 {
+			  "@type": "Question",
+			  "name": "¿Necesito cita previa?",
+			  "acceptedAnswer": {
+			   "@type": "Answer",
+			   "text": "Sí, necesitas contactar vía teléfonica o WhatsApp para agendar cita."
+			  }
+			 }
+			]
+			}
+		</script>
 	</head>
 	<body>
 
@@ -247,6 +337,7 @@
 							<li><a href="#servicios">Servicios</a></li>
 							<li><a href="#galeria">Galería</a></li>
 							<li><a href="#testimonios">Testimonios</a></li>
+							<li><a href="#faq">FAQ</a></li>
 							<li><a href="#contacto">Contacto</a></li>
 						</ul>
 					</nav>
@@ -450,7 +541,7 @@
 							<p class="about-bio">El cuidado y bienestar de tu familia en manos expertas. La Dra. Ana Laura Paz García, subespecialista en Alergología Pediátrica, combina ciencia y calidez para brindar el mejor tratamiento en alergias e inmunología.</p>
 							<h3 class="about-label">Experiencia Profesional</h3>
 							<ul class="about-list">
-								<li>Alergia e inmunología Pediatra, H.R.A.E. Gral. Zaragoza, ISSSTE.</li>
+								<li>Alergia e inmunología Pediatra, H.R. Gral. Ignacio Zaragoza, ISSSTE.</li>
 								<li>Pediatra, Centro Médico Nacional Siglo XXI, IMSS.</li>
 								<li>Médico Cirujano y Partero, Benemérita Universidad Autónoma de Puebla.</li>
 							</ul>
@@ -573,9 +664,9 @@
 			<!-- Galería -->
 			<section id="galeria" class="section section-alt">
 				<div class="section-inner">
-					<p class="eyebrow">Consultorio</p>
+					<p class="eyebrow">Pruebas cutáneas</p>
 					<h2>Galería</h2>
-					<p>Conoce el espacio donde atendemos a ti y a tu familia.</p>
+					<p>Así se ven las pruebas cutáneas de alergia que realizamos en consulta.</p>
 				</div>
 
 				<!-- Carrusel infinito: el track rota sus propios elementos, sin clones.
@@ -585,32 +676,32 @@
 						<ul class="gallery-track">
 							<li class="gallery-item">
 								<figure>
-									<img src="images/galeria/demo-1.webp" alt="Foto demo 1 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+									<img src="images/galeria/DraAnaPaz-galeria-1.webp" alt="Prueba cutánea de alergias en los antebrazos de un paciente" width="1200" height="900" loading="lazy" decoding="async" />
 								</figure>
 							</li>
 							<li class="gallery-item">
 								<figure>
-									<img src="images/galeria/demo-2.webp" alt="Foto demo 2 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+									<img src="images/galeria/DraAnaPaz-galeria-2.webp" alt="Prueba cutánea de alergias en el antebrazo de un paciente" width="1200" height="900" loading="lazy" decoding="async" />
 								</figure>
 							</li>
 							<li class="gallery-item">
 								<figure>
-									<img src="images/galeria/demo-3.webp" alt="Foto demo 3 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+									<img src="images/galeria/DraAnaPaz-galeria-3.webp" alt="Prueba cutánea de alergias en el antebrazo de un paciente" width="1200" height="900" loading="lazy" decoding="async" />
 								</figure>
 							</li>
 							<li class="gallery-item">
 								<figure>
-									<img src="images/galeria/demo-4.webp" alt="Foto demo 4 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+									<img src="images/galeria/DraAnaPaz-galeria-4.webp" alt="Prueba cutánea de alergias en la espalda de un paciente" width="1200" height="900" loading="lazy" decoding="async" />
 								</figure>
 							</li>
 							<li class="gallery-item">
 								<figure>
-									<img src="images/galeria/demo-5.webp" alt="Foto demo 5 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+									<img src="images/galeria/DraAnaPaz-galeria-5.webp" alt="Prueba cutánea de alergias en la espalda de un paciente" width="1200" height="900" loading="lazy" decoding="async" />
 								</figure>
 							</li>
 							<li class="gallery-item">
 								<figure>
-									<img src="images/galeria/demo-6.webp" alt="Foto demo 6 del consultorio" width="1200" height="900" loading="lazy" decoding="async" />
+									<img src="images/galeria/DraAnaPaz-galeria-6.webp" alt="Prueba cutánea de alergias en la espalda de un paciente" width="1200" height="900" loading="lazy" decoding="async" />
 								</figure>
 							</li>
 						</ul>
@@ -733,8 +824,77 @@
 				</div>
 			</section>
 
+			<!-- Preguntas Frecuentes -->
+			<section id="faq" class="section section-alt">
+				<!-- Vilanos sueltos cruzando la sección (decorativo) -->
+				<div class="drift" aria-hidden="true">
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="47" height="47" style="left:42%;top:3%"><g class="dl-fly" style="--dur:16s;--delay:-0s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="60" height="60" style="left:6%;top:10%"><g class="dl-fly" style="--dur:19s;--delay:-2s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="42" height="42" style="left:33%;top:18%"><g class="dl-fly" style="--dur:15s;--delay:-4s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="70" height="70" style="left:-4%;top:24%"><g class="dl-fly" style="--dur:20s;--delay:-6s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="52" height="52" style="left:20%;top:32%"><g class="dl-fly" style="--dur:17s;--delay:-3s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="45" height="45" style="left:47%;top:40%"><g class="dl-fly" style="--dur:14s;--delay:-9s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="65" height="65" style="left:10%;top:47%"><g class="dl-fly" style="--dur:18s;--delay:-7s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="38" height="38" style="left:36%;top:54%"><g class="dl-fly" style="--dur:21s;--delay:-11s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="57" height="57" style="left:2%;top:61%"><g class="dl-fly" style="--dur:16s;--delay:-13s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="73" height="73" style="left:26%;top:68%"><g class="dl-fly" style="--dur:19s;--delay:-8s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="44" height="44" style="left:44%;top:75%"><g class="dl-fly" style="--dur:15s;--delay:-15s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="68" height="68" style="left:14%;top:83%"><g class="dl-fly" style="--dur:20s;--delay:-12s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="50" height="50" style="left:31%;top:90%"><g class="dl-fly" style="--dur:17s;--delay:-16s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+					<svg class="drift-seed" viewBox="-20 -20 40 40" width="62" height="62" style="left:0%;top:96%"><g class="dl-fly" style="--dur:14s;--delay:-10s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>
+				</div>
+				<div class="section-inner">
+					<p class="eyebrow">Resolvemos tus dudas</p>
+					<h2>Preguntas Frecuentes</h2>
+					<p>Antes de agendar, esto es lo que más nos preguntan nuestros pacientes.</p>
+
+					<div class="faq-list">
+						<details class="faq-item">
+							<summary>¿Qué especialidad tiene la Dra. Ana Laura Paz García? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>Es subespecialista en Alergología e Inmunología Pediátrica, certificada por el Consejo Nacional de Inmunología Clínica y Alergia y por el Consejo Mexicano de Certificación en Pediatría. Atiende tanto a niños como a adultos.</p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Cuánto cuesta la consulta? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>La primera consulta tiene un costo de $1,000.00 MXN y las subsecuentes de $800.00 MXN, tanto para Alergia e Inmunología como para Pediatría.</p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Qué días y horarios atienden? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>Lunes a viernes de 11:00 a 19:00 y sábados de 11:00 a 16:00.</p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Cómo agendo una cita? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>Por WhatsApp al 222 729 1799, con confirmación de disponibilidad el mismo día, o llamando directamente al consultorio al (222) 264 6580.</p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Qué formas de pago aceptan? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>Efectivo, tarjetas Visa, MasterCard y American Express, Apple Pay, Google Pay, Samsung Pay, Carnet, Up Sí Vale, Toka, Tengo, Edenred y Pluxee.</p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Qué pruebas diagnósticas realizan? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>Pruebas cutáneas de aeroalérgenos, de alimentos e intradérmicas a fármacos, además de prueba de suero autólogo.</p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Ofrecen tratamiento para las alergias, no solo diagnóstico? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>Sí: inmunoterapia sublingual (vía oral), inmunoterapia subcutánea (inyectable) y alergoide con alérgenos purificados químicamente.</p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Dónde está ubicado el consultorio? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>En Av 35 Ote 2804-A, Col. Alseseca, Puebla, Pue. México. <a class="contact-link" href="https://maps.app.goo.gl/12M8J3r8bR2cNiDx9" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Solo atienden niños o también adultos? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>Sí, atiende tanto a niños como a adultos con alergias e inmunología.</p>
+						</details>
+						<details class="faq-item">
+							<summary>¿Necesito cita previa? <span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+							<p>Sí, necesitas contactar vía teléfonica o WhatsApp para agendar cita.</p>
+						</details>
+					</div>
+				</div>
+			</section>
+
 			<!-- Contacto -->
-			<section id="contacto" class="section">
+			<section id="contacto" class="section section-light">
 				<!-- Vilanos sueltos cruzando la sección (decorativo) -->
 				<div class="drift" aria-hidden="true">
 					<svg class="drift-seed" viewBox="-20 -20 40 40" width="40" height="40" style="left:36%;top:4%"><g class="dl-fly" style="--dur:21s;--delay:-0s"><g class="dl-fly-y"><g class="dl-fly-w"><g class="dl-fly-r"><use href="#dl-seed"/></g></g></g></g></svg>

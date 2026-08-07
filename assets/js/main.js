@@ -76,6 +76,7 @@
 	// the loop works in both directions no matter how many items there are.
 	document.querySelectorAll("[data-gallery]").forEach(function (gallery) {
 		var track = gallery.querySelector(".gallery-track");
+		var viewport = gallery.querySelector(".gallery-viewport");
 		var prev = gallery.querySelector(".gallery-prev");
 		var next = gallery.querySelector(".gallery-next");
 
@@ -96,10 +97,19 @@
 			return second.getBoundingClientRect().left - first.getBoundingClientRect().left;
 		}
 
+		// Con el JS al mando el viewport nunca debe estar desplazado: la posición
+		// la da el transform del track. Aun así el navegador puede desplazarlo
+		// solo (p. ej. al enfocar con Tab un control de video que quedó fuera de
+		// vista), y ese offset se sumaría al transform descuadrando el carrusel.
+		function resetScroll() {
+			if (viewport && viewport.scrollLeft) viewport.scrollLeft = 0;
+		}
+
 		function settle(fn) {
 			track.style.transition = "none";
 			fn();
 			track.style.transform = "";
+			resetScroll();
 			// Force a reflow so the next transition starts from this state
 			// instead of being collapsed into it.
 			void track.offsetWidth;
@@ -128,6 +138,7 @@
 				track.style.transition = "none";
 				track.insertBefore(track.children[track.children.length - 1], track.children[0]);
 				track.style.transform = "translateX(" + -distance + "px)";
+				resetScroll();
 				void track.offsetWidth;
 				track.style.transition = "transform 0.45s ease";
 				track.style.transform = "";
@@ -135,12 +146,52 @@
 			}
 		}
 
-		next.addEventListener("click", function () { slide(1); });
-		prev.addEventListener("click", function () { slide(-1); });
+		next.addEventListener("click", function () { slide(1); resetAutoplay(); });
+		prev.addEventListener("click", function () { slide(-1); resetAutoplay(); });
 
 		gallery.addEventListener("keydown", function (event) {
-			if (event.key === "ArrowRight") { slide(1); }
-			else if (event.key === "ArrowLeft") { slide(-1); }
+			if (event.key === "ArrowRight") { slide(1); resetAutoplay(); }
+			else if (event.key === "ArrowLeft") { slide(-1); resetAutoplay(); }
 		});
+
+		// Auto-avance: se detiene con el cursor o el foco encima, y mientras la
+		// galería está fuera de pantalla (mismo criterio que .is-offscreen para
+		// el resto de las animaciones decorativas). prefers-reduced-motion la
+		// desactiva por completo, no solo la hace instantánea.
+		var AUTOPLAY_MS = 3500;
+		var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		var autoplayTimer = null;
+
+		function startAutoplay() {
+			if (autoplayTimer || reduceMotion) return;
+			autoplayTimer = window.setInterval(function () { slide(1); }, AUTOPLAY_MS);
+		}
+		function stopAutoplay() {
+			window.clearInterval(autoplayTimer);
+			autoplayTimer = null;
+		}
+		function resetAutoplay() {
+			if (!autoplayTimer) return;
+			stopAutoplay();
+			startAutoplay();
+		}
+
+		if (!reduceMotion) {
+			gallery.addEventListener("mouseenter", stopAutoplay);
+			gallery.addEventListener("mouseleave", startAutoplay);
+			gallery.addEventListener("focusin", stopAutoplay);
+			gallery.addEventListener("focusout", startAutoplay);
+
+			if ("IntersectionObserver" in window) {
+				new IntersectionObserver(function (entries) {
+					entries.forEach(function (entry) {
+						if (entry.isIntersecting) startAutoplay();
+						else stopAutoplay();
+					});
+				}).observe(gallery);
+			} else {
+				startAutoplay();
+			}
+		}
 	});
 })();

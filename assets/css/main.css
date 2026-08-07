@@ -230,7 +230,13 @@ a:focus-visible {
 	border-bottom: 1px solid var(--border);
 }
 .header-inner {
-	max-width: var(--container);
+	/* Ancho propio, no el --container de las secciones: con los siete enlaces
+	   + teléfono + WhatsApp, el contenido natural del header (~1106px) ya no
+	   cabía en los 68em del --container. Al no caber, el único hijo con
+	   min-width:0 (.brand) se encogía por debajo del ancho de su texto, y como
+	   ese texto es nowrap, se desbordaba visualmente sobre el CTA en vez de
+	   simplemente no caber — de ahí el traslape. 76em da margen real. */
+	max-width: 76em;
 	margin: 0 auto;
 	min-height: var(--header-h);
 	padding: 0.5em 1.25em;
@@ -239,7 +245,10 @@ a:focus-visible {
 	gap: 1em;
 }
 
-.brand { display: flex; align-items: center; gap: 0.6em; margin-right: auto; min-width: 0; }
+/* Sin min-width:0: si en el futuro el header vuelve a quedarse corto, que el
+   contenido desborde el contenedor (o fuerce un scroll horizontal, visible y
+   fácil de detectar) en vez de que el nombre se coma el teléfono en silencio. */
+.brand { display: flex; align-items: center; gap: 0.6em; margin-right: auto; }
 .brand-logo { width: 2.5em; height: 2.5em; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .brand-name {
 	font-family: var(--font-display);
@@ -342,17 +351,18 @@ a:focus-visible {
 		padding: 0;
 		margin-right: 0.5em;
 	}
-	/* Seis enlaces, no cuatro: menos padding por link para que quepan sin
-	   apretar el nombre de la doctora contra la izquierda. */
+	/* Siete enlaces, no cuatro: menos padding por link para que quepan sin
+	   apretar el nombre de la doctora contra la izquierda. "FAQ" (en vez de
+	   "Preguntas Frecuentes") se eligió corto a propósito por la misma razón. */
 	#primary-nav ul { flex-direction: row; gap: 0; }
-	#primary-nav a { padding: 0.5em 0.65em; font-size: 0.95em; }
+	#primary-nav a { padding: 0.5em 0.6em; font-size: 0.95em; }
 }
-/* Entre 60 y 68em (el header aún no llega al ancho máximo del contenedor) los
-   seis enlaces + el número de teléfono en texto no caben sin encimarse con el
-   nombre. El teléfono ya tiene aria-label, así que el texto es redundante:
-   se oculta y queda solo el ícono; WhatsApp conserva su etiqueta porque es el
-   CTA principal. */
-@media (min-width: 60em) and (max-width: 67.99em) {
+/* Entre 60 y 76em (el header-inner aún no llega a su propio ancho máximo, ver
+   .header-inner) los siete enlaces + el número de teléfono en texto no caben
+   sin encimarse con el nombre. El teléfono ya tiene aria-label, así que el
+   texto es redundante: se oculta y queda solo el ícono; WhatsApp conserva su
+   etiqueta porque es el CTA principal. */
+@media (min-width: 60em) and (max-width: 75.99em) {
 	.header-cta-link:not(.whatsapp) span { display: none; }
 }
 
@@ -797,7 +807,12 @@ a:focus-visible {
 /* Sin JS el carrusel no puede rotar, así que el viewport queda como una tira
    desplazable con el dedo y las flechas —que no harían nada— no se muestran. */
 .gallery-viewport { overflow-x: auto; scroll-snap-type: x mandatory; }
-.gallery[data-gallery-ready] .gallery-viewport { overflow: hidden; }
+/* El snap se apaga junto con el scroll: es parte del mismo fallback sin JS.
+   Dejarlo puesto rompía la rotación — al mover el primer elemento al final, el
+   snap obligatorio perseguía a ese elemento y desplazaba el viewport hasta el
+   final (scrollLeft 0 → 1140), así que en pantalla se saltaba una página
+   entera (1,2,3 → 4,5,6) en vez de un solo elemento. */
+.gallery[data-gallery-ready] .gallery-viewport { overflow: hidden; scroll-snap-type: none; }
 .gallery-item { scroll-snap-align: start; }
 .gallery-nav { display: none; }
 .gallery[data-gallery-ready] .gallery-nav { display: flex; }
@@ -906,6 +921,74 @@ a:focus-visible {
 	.testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 2em; }
 }
 
+/* ---------- Preguntas Frecuentes ----------
+ * <details>/<summary> nativos: acordeón accesible por teclado y funcional sin
+ * JS, igual que el resto del sitio. Sin .drift — es tan densa en texto como
+ * Sobre Mí, y los vilanos solo estorbarían.
+ */
+.faq-list {
+	margin-top: var(--space-md);
+	display: flex;
+	flex-direction: column;
+	gap: 0.75em;
+	max-width: 46em;
+}
+/* En desktop hay aire de sobra y ocho preguntas en una sola columna quedan
+   muy largas para escanear: dos columnas, llenado por fila (fila 1 = preguntas
+   1-2, fila 2 = 3-4...) para que el orden de lectura siga siendo natural.
+   align-items:start evita que una tarjeta abierta estire a su vecina de fila. */
+@media (min-width: 60em) {
+	.faq-list {
+		max-width: none;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: start;
+		gap: 0.75em 1.5em;
+	}
+}
+.faq-item {
+	background: var(--bg-card);
+	border-radius: var(--radius);
+	padding: 0 1.25em;
+}
+.faq-item summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1em;
+	min-height: 44px;
+	padding: 1em 0;
+	font-weight: 600;
+	color: var(--fg-bold);
+	cursor: pointer;
+	list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:focus-visible {
+	outline: 3px solid var(--accent3-light);
+	outline-offset: 3px;
+	border-radius: var(--radius-sm);
+}
+/* Ícono +/− en CSS puro: dos barras que giran a "×" al abrir, sin agregar un
+   símbolo nuevo al sprite SVG solo para esto. */
+.faq-toggle-icon { position: relative; width: 1em; height: 1em; flex-shrink: 0; }
+.faq-toggle-icon::before,
+.faq-toggle-icon::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: currentColor;
+	transform: translateY(-50%);
+	transition: transform var(--transition);
+}
+.faq-toggle-icon::after { transform: translateY(-50%) rotate(90deg); }
+.faq-item[open] .faq-toggle-icon::after { transform: translateY(-50%) rotate(0deg); }
+.faq-item p { margin: 0 0 1.25em; color: var(--fg); line-height: 1.6; }
+.faq-item .contact-link { color: var(--accent3-light); }
+
 /* ---------- Contacto ----------
  * Es la sección donde la gente agenda, así que no puede tener el mismo peso
  * repartido en seis bloques iguales: agendar manda, el resto acompaña.
@@ -918,14 +1001,16 @@ a:focus-visible {
 }
 
 /* Panel de conversión: sí lleva superficie propia — aquí una caja no es
-   "de dashboard", es la que le da presencia a la acción principal. */
+   "de dashboard", es la que le da presencia a la acción principal. Blanco
+   sobre el fondo claro de la sección (en vez de --bg-card oscuro): un bloque
+   morado sólido desentonaba con el resto de Contacto ya en claro. */
 .contact-primary {
-	background: var(--bg-card);
-	border: 1px solid var(--border);
+	background: #fff;
+	border: 1px solid var(--border-on-light);
 	border-radius: var(--radius);
 	padding: 1.75em;
 }
-.contact-primary > p { color: var(--fg); max-width: 32em; }
+.contact-primary > p { max-width: 32em; }
 .contact-cta {
 	width: 100%;
 	margin-top: 1.25em;
@@ -939,7 +1024,7 @@ a:focus-visible {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.14em;
-	color: var(--fg-light);
+	color: var(--fg-on-light-muted);
 }
 
 /* Teléfonos como filas grandes y tocables: son la segunda vía de conversión
@@ -951,17 +1036,17 @@ a:focus-visible {
 	gap: 0.85em;
 	min-height: 44px;
 	padding: 0.7em 0.9em;
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-on-light);
 	border-radius: var(--radius-sm);
-	color: var(--fg-bold);
+	color: var(--fg-on-light);
 	transition: border-color var(--transition), background var(--transition);
 }
-.contact-phones a:hover { border-color: var(--accent3-light); background: rgba(255, 255, 255, 0.04); }
-.contact-phones .icon { width: 1.15em; height: 1.15em; color: var(--accent3-light); }
+.contact-phones a:hover { border-color: var(--accent3); background: rgba(107, 75, 189, 0.06); }
+.contact-phones .icon { width: 1.15em; height: 1.15em; color: var(--accent3); }
 /* El número no se ancla a la derecha hasta los 60em: antes de ese ancho los
    botones flotantes de teléfono/WhatsApp caen justo encima. Mientras tanto va
    junto a su etiqueta, con min-width para que ambos números queden alineados. */
-.contact-phone-label { color: var(--fg-light); font-size: 0.9em; min-width: 6.5em; }
+.contact-phone-label { color: var(--fg-on-light-muted); font-size: 0.9em; min-width: 6.5em; }
 .contact-phone-number { font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* Datos de apoyo: hairlines, sin caja */
@@ -973,8 +1058,8 @@ a:focus-visible {
 .contact-link { display: inline-block; margin-top: 0.75em; border-bottom: 1px solid var(--accent3-light); }
 
 .payments {
-	background: var(--bg-card);
-	border: 1px solid var(--border);
+	background: #fff;
+	border: 1px solid var(--border-on-light);
 	border-radius: var(--radius);
 	padding: 1.75em;
 }
@@ -989,16 +1074,30 @@ a:focus-visible {
 }
 /* Cada logo vive en el mismo "chip" (alto, fondo y radio fijos) sin importar
    su color o proporción: así la fila deja de verse como un lote de assets de
-   fuentes distintas, y "pluxee" —gris oscuro— no se pierde contra el morado.
-   Altura generosa: a 1.8em las marcas quedaban ilegibles. */
+   fuentes distintas, y "pluxee" —gris oscuro— no se pierde contra el fondo.
+   El borde marca el chip: la tarjeta ya es blanca, así que el --surface-light
+   del chip por sí solo ya no bastaba para distinguirlo. Altura generosa: a
+   1.8em las marcas quedaban ilegibles. */
 .logo-row img {
 	width: 100%;
 	height: 3.4em;
 	object-fit: contain;
 	background: var(--surface-light);
+	border: 1px solid var(--border-on-light);
 	border-radius: var(--radius-sm);
 	padding: 0.7em 1em;
 }
+
+/* Toda la sección vive sobre fondo claro, "Agenda tu cita" y "Formas de pago"
+   incluidas (ver .contact-primary/.payments más arriba): la regla genérica
+   .section-light h3 ya les pinta el título oscuro correctamente, sin
+   necesidad de una excepción aquí. Lo demás toma los mismos tokens
+   "on-light" que ya usan Servicios y Testimonios. */
+.section-light .contact-item { border-color: var(--border-on-light); }
+.section-light .contact-item > .icon { color: var(--accent3); }
+.section-light .contact-item a { color: var(--fg-on-light); }
+.section-light .contact-item a:hover { color: var(--accent3); }
+.section-light .contact-link { border-color: var(--accent3); }
 
 @media (min-width: 40em) {
 	.contact-aside { grid-template-columns: repeat(2, 1fr); gap: 1.5em 2.5em; }
