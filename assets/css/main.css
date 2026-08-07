@@ -1,12 +1,3 @@
-/*
-	Dra. Ana Laura Paz García — sitio de una sola página.
-	CSS propio, mobile-first. Sin frameworks.
-*/
-
-/* ---------- Tipografía ----------
-   Lora 600, subset latino (U+0000-00FF: cubre á é í ó ú ñ ¿ ¡), autoalojada:
-   21KB, un solo peso. La jerarquía de títulos se hace con tamaño, no con peso,
-   así no hace falta un segundo archivo. El cuerpo sigue en la sans del sistema. */
 @font-face {
 	font-family: "Lora";
 	font-style: normal;
@@ -18,7 +9,6 @@
 		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body, h1, h2, h3, p, ul, ol, figure { margin: 0; }
@@ -26,11 +16,7 @@ ul { padding: 0; list-style: none; }
 img { max-width: 100%; display: block; height: auto; }
 a { color: inherit; text-decoration: none; }
 
-/* ---------- Tokens ---------- */
 :root {
-	/* Base ligeramente menos saturada que la original (#2a1f4d/#221a3f/#362a5f):
-	   mismo matiz y luminosidad, un toque más neutro — la doctora pidió sobrio,
-	   no un cambio de paleta. */
 	--bg: #2c2448;
 	--bg-alt: #241e3b;
 	--bg-card: #392f5a;
@@ -38,19 +24,15 @@ a { color: inherit; text-decoration: none; }
 	--fg-bold: #ffffff;
 	--fg-light: rgba(255, 255, 255, 0.6);
 	--border: rgba(255, 255, 255, 0.14);
-	--border-on-light: rgba(42, 31, 77, 0.14);   /* hairlines sobre el bloque claro */
+	--border-on-light: rgba(42, 31, 77, 0.14);
 
-	--accent1: #6b4bbd; /* violeta */
-	--accent2: #5860c9; /* azul-violeta */
-	/* Magenta desaturado a vino/berry apagado — antes #b74e91/#d267a8, muy
-	   "vivo" para el tono sobrio que quiere la doctora. Mismo matiz, menos
-	   saturación; contraste verificado: accent3 sobre blanco (.service-icon)
-	   ~5.5:1, accent3-light sobre --bg (nav activo) ~4.5:1. */
-	--accent3: #965473; /* vino apagado — CTA / acentos generales */
+	--accent1: #6b4bbd;
+	--accent2: #5860c9;
+	--accent3: #965473;
 	--accent3-light: #b37e97;
-	--accent-green: #2c7a6c; /* verde del logo (oscurecido para contraste AA) — WhatsApp */
-	--accent-green-light: #4fa894; /* verde del logo, tono real — hover */
-	--surface-light: #f7f7f7; /* blanco del logo */
+	--accent-green: #2c7a6c;
+	--accent-green-light: #4fa894;
+	--surface-light: #f7f7f7;
 	--fg-on-light: #2a1f4d;
 	--fg-on-light-muted: rgba(42, 31, 77, 0.72);
 
@@ -60,16 +42,14 @@ a { color: inherit; text-decoration: none; }
 	--header-h: 4.25em;
 	--transition: 0.2s ease;
 
-	/* Escala de espaciado — la elegancia es sobre todo aire bien medido */
 	--space-xs: 0.5em;
 	--space-sm: 1em;
 	--space-md: 2em;
 	--space-lg: 3.5em;
 	--space-xl: 5em;
-	--section-pad: 4.5em;   /* sube en desktop, ver media query de 60em */
+	--section-pad: 4.5em;
 
 	--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-	/* Serif solo para títulos; Georgia como respaldo mientras carga o si falla */
 	--font-display: "Lora", Georgia, "Times New Roman", serif;
 }
 
@@ -92,8 +72,6 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-/* Títulos en serif: peso 600 (no 700 — la serif ya aporta presencia) y tracking
-   ligeramente negativo, que es lo que pide cualquier serif a tamaño display. */
 h1, h2, h3 {
 	font-family: var(--font-display);
 	color: var(--fg-bold);
@@ -107,38 +85,27 @@ h3 { font-size: 1.2em; line-height: 1.3; letter-spacing: -0.005em; margin-bottom
 p { margin-bottom: 1em; }
 p:last-child { margin-bottom: 0; }
 
-/* Etiqueta breve sobre el título de sección: orienta al lector y da el aire
-   editorial que separa un sitio diseñado de una plantilla. */
 .eyebrow {
 	font-size: 0.72em;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.16em;
-	/* Un punto más claro que --accent3-light: a este tamaño el token daba
-	   4.37:1 sobre el morado, justo por debajo del mínimo AA (4.5). Aquí
-	   da 5.08:1. */
 	color: #bd8ba3;
 	margin-bottom: 1em;
 }
 .section-light .eyebrow { color: var(--accent3); }
 
-/* ---------- Layout helpers ---------- */
 .section { padding: var(--section-pad) 1.25em; position: relative; overflow: hidden; }
 .section-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
-/* En desktop el aire se nota mucho más: es la diferencia entre "denso" y "caro" */
+
 @media (min-width: 60em) {
 	:root { --section-pad: 7em; }
 }
 
-/*
- * Vilanos sueltos cruzando cada sección (mismo símbolo #dl-seed que el hero).
- * El color no viene del símbolo sino de aquí, porque el tono de fondo cambia
- * de una sección a otra: claros sobre el morado, morados sobre el bloque claro.
- */
 .drift {
 	position: absolute;
 	inset: 0;
-	z-index: 2;   /* por encima de las tarjetas: si no, casi no se ven */
+	z-index: 2;
 	pointer-events: none;
 	stroke: #cdbcff;
 	color: #efe7ff;
@@ -149,33 +116,27 @@ p:last-child { margin-bottom: 0; }
 	color: var(--accent1);
 	opacity: 0.34;
 }
-/* Se coloca cada vilano en % (la sección puede tener cualquier alto) y se le
-   deja desbordar: la animación lo saca del recuadro y lo recorta la sección */
+
 .drift-seed {
 	position: absolute;
 	overflow: visible;
 	--travel: 92vw;
 	--rise: -150px;
 }
-/* La duración de cada vilano viene del marcado (--dur); --dur-scale la acorta
-   en bloque sin perder la variedad entre unos y otros */
+
 .drift .dl-fly,
 .drift .dl-fly-y { animation-duration: calc(var(--dur) * var(--dur-scale, 1)); }
-/* En móvil el recorrido se acorta para que el vilano se desvanezca justo al
-   salir por la derecha: con 92vw pasaba media vuelta fuera de pantalla y
-   parecía que tardaba muchísimo en reaparecer */
+
 @media (max-width: 59.99em) {
 	.drift-seed { --travel: 72vw; --dur-scale: 0.8; }
 }
 
-/* High-contrast light block, breaks up the dark background rhythm */
 .section-light {
 	background: var(--surface-light);
 	color: var(--fg-on-light-muted);
 }
 .section-light h2, .section-light h3 { color: var(--fg-on-light); }
 
-/* ---------- Accessibility helpers ---------- */
 .skip-link {
 	position: absolute;
 	top: -3em;
@@ -195,7 +156,6 @@ a:focus-visible {
 	border-radius: var(--radius-sm);
 }
 
-/* ---------- Buttons ---------- */
 .button {
 	display: inline-flex;
 	align-items: center;
@@ -203,8 +163,6 @@ a:focus-visible {
 	gap: 0.5em;
 	min-height: 44px;
 	padding: 0.85em 1.6em;
-	/* Radio chico y peso 600: los botones muy redondeados y en negrita leen
-	   "app"; los sobrios son más rectos y menos gritados. */
 	border-radius: 0.3em;
 	font-weight: 600;
 	font-size: 1em;
@@ -217,10 +175,8 @@ a:focus-visible {
 .button.ghost:hover { border-color: var(--accent3-light); }
 .button:active { transform: scale(0.97); }
 
-/* ---------- Icons ---------- */
 .icon { width: 1.3em; height: 1.3em; flex-shrink: 0; }
 
-/* ---------- Header ---------- */
 #header {
 	position: sticky;
 	top: 0;
@@ -230,12 +186,6 @@ a:focus-visible {
 	border-bottom: 1px solid var(--border);
 }
 .header-inner {
-	/* Ancho propio, no el --container de las secciones: con los siete enlaces
-	   + teléfono + WhatsApp, el contenido natural del header (~1106px) ya no
-	   cabía en los 68em del --container. Al no caber, el único hijo con
-	   min-width:0 (.brand) se encogía por debajo del ancho de su texto, y como
-	   ese texto es nowrap, se desbordaba visualmente sobre el CTA en vez de
-	   simplemente no caber — de ahí el traslape. 76em da margen real. */
 	max-width: 76em;
 	margin: 0 auto;
 	min-height: var(--header-h);
@@ -245,9 +195,6 @@ a:focus-visible {
 	gap: 1em;
 }
 
-/* Sin min-width:0: si en el futuro el header vuelve a quedarse corto, que el
-   contenido desborde el contenedor (o fuerce un scroll horizontal, visible y
-   fácil de detectar) en vez de que el nombre se coma el teléfono en silencio. */
 .brand { display: flex; align-items: center; gap: 0.6em; margin-right: auto; }
 .brand-logo { width: 2.5em; height: 2.5em; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .brand-name {
@@ -275,7 +222,6 @@ a:focus-visible {
 .header-cta-link.whatsapp { background: var(--accent-green); color: #fff; }
 .header-cta-link.whatsapp:hover { background: var(--accent-green-light); }
 
-/* Mobile nav: checkbox-driven disclosure, works with zero JS */
 #nav-drawer { position: relative; }
 #nav-check {
 	position: absolute;
@@ -351,22 +297,14 @@ a:focus-visible {
 		padding: 0;
 		margin-right: 0.5em;
 	}
-	/* Siete enlaces, no cuatro: menos padding por link para que quepan sin
-	   apretar el nombre de la doctora contra la izquierda. "FAQ" (en vez de
-	   "Preguntas Frecuentes") se eligió corto a propósito por la misma razón. */
 	#primary-nav ul { flex-direction: row; gap: 0; }
 	#primary-nav a { padding: 0.5em 0.6em; font-size: 0.95em; }
 }
-/* Entre 60 y 76em (el header-inner aún no llega a su propio ancho máximo, ver
-   .header-inner) los siete enlaces + el número de teléfono en texto no caben
-   sin encimarse con el nombre. El teléfono ya tiene aria-label, así que el
-   texto es redundante: se oculta y queda solo el ícono; WhatsApp conserva su
-   etiqueta porque es el CTA principal. */
+
 @media (min-width: 60em) and (max-width: 75.99em) {
 	.header-cta-link:not(.whatsapp) span { display: none; }
 }
 
-/* ---------- Floating conversion buttons (mobile) ---------- */
 .float-actions {
 	position: fixed;
 	right: 1em;
@@ -395,12 +333,10 @@ a:focus-visible {
 	.float-actions { display: none; }
 }
 
-/* Keep lead paragraphs clear of the fixed floating buttons on mobile */
 @media (max-width: 59.99em) {
 	.hero-copy > p, .section-inner > p { padding-right: 4.5em; }
 }
 
-/* ---------- Hero ---------- */
 .hero {
 	position: relative;
 	overflow: hidden;
@@ -412,10 +348,7 @@ a:focus-visible {
 		radial-gradient(60em 40em at 85% -10%, rgba(107, 75, 189, 0.45), transparent),
 		var(--bg);
 }
-/*
- * El hero recorta con overflow: hidden, así que el tallo llegaría al borde y se
- * vería cortado en seco: esta franja lo funde con el fondo antes de llegar.
- */
+
 .hero::before {
 	content: "";
 	position: absolute;
@@ -427,7 +360,7 @@ a:focus-visible {
 	pointer-events: none;
 	background: linear-gradient(180deg, rgba(42, 31, 77, 0) 0%, var(--bg) 88%);
 }
-/* Velo que mantiene legible el texto sobre la ilustración */
+
 .hero::after {
 	content: "";
 	position: absolute;
@@ -443,9 +376,7 @@ a:focus-visible {
 	margin: 0 auto;
 	width: 100%;
 }
-/* Bajo un titular en serif, un subtítulo en negrita sans compite en vez de
-   acompañar. En mayúsculas espaciadas y sin negrita se lee como descriptor
-   profesional y deja que el nombre mande. */
+
 .hero-subtitle {
 	font-size: 0.95em;
 	color: var(--fg-bold);
@@ -456,10 +387,6 @@ a:focus-visible {
 .hero-subtitle strong { font-weight: 600; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85em; margin-top: 1.5em; }
 
-/* Foto de la doctora: en móvil cae después de .hero-copy (debajo del texto,
-   sin grid); en desktop el media query de 60em la reordena a la izquierda.
-   Reusa el mismo archivo que .about-portrait, así el navegador solo lo
-   descarga una vez. */
 .hero-photo {
 	width: 100%;
 	aspect-ratio: 4 / 3;
@@ -480,18 +407,15 @@ a:focus-visible {
 }
 .hero-note .icon { width: 1.1em; height: 1.1em; }
 
-/* ---------- Diente de león animado (decorativo) ---------- */
 .hero-art {
 	position: absolute;
 	inset: 0;
 	z-index: 0;
 	pointer-events: none;
-	/* Degradación: la ilustración se funde con el fondo por los bordes */
 	-webkit-mask-image: radial-gradient(125% 108% at 64% 34%, #000 24%, rgba(0, 0, 0, 0.55) 56%, transparent 84%);
 	mask-image: radial-gradient(125% 108% at 64% 34%, #000 24%, rgba(0, 0, 0, 0.55) 56%, transparent 84%);
 }
-/* La inclinación del viento empuja la flor hacia la derecha, así que en móvil
-   se ancla más adentro para que no se salga del recorte */
+
 .dandelion {
 	position: absolute;
 	top: -4%;
@@ -506,11 +430,7 @@ a:focus-visible {
 	transform-origin: 250px 205px;
 	animation: dl-pulse 13s ease-in-out infinite;
 }
-/*
- * El tallo no bascula entero (se leía como un palo clavado): la base gira muy
- * poco y el tramo alto —dentro de .dl-bend— repite el mismo vaivén con retraso,
- * así el tallo se arquea y la cabeza llega siempre un instante después.
- */
+
 .dl-plant {
 	transform-origin: 219px 520px;
 	animation: dl-sway 14s ease-in-out infinite;
@@ -525,12 +445,11 @@ a:focus-visible {
 	transform-origin: 250px 205px;
 	animation: dl-breathe 19s ease-in-out infinite;
 }
-/* En móvil la flor se ve mucho más chica: se rala uno de cada tres vilanos de
-   cada capa (la silueta no cambia, pero son ~50 trazos menos por frame) */
+
 @media (max-width: 59.99em) {
 	.dl-head use:nth-child(3n) { display: none; }
 }
-/* Las tres capas de profundidad respiran a distinto ritmo: rompe la simetría */
+
 .dl-l1 { transform-origin: 250px 205px; animation: dl-breathe 23s ease-in-out infinite reverse; }
 .dl-l3 { transform-origin: 250px 205px; animation: dl-breathe 17s ease-in-out -4s infinite; }
 .dl-core {
@@ -540,12 +459,6 @@ a:focus-visible {
 	animation: dl-core-glow 7s ease-in-out infinite;
 }
 
-/*
- * Cada vilano se mueve por capas anidadas con duraciones y curvas distintas
- * (avance + ascenso + bamboleo + giro). Al no coincidir los ciclos, la
- * trayectoria nunca se repite igual y no se lee como una línea recta.
- */
-/* Recorrido de cada vilano; en desktop cruzan más ancho y suben menos */
 .dl-flyers { --travel: 340px; --rise: -260px; }
 .dl-fly {
 	--dur: 17s;
@@ -558,27 +471,19 @@ a:focus-visible {
 .dl-fly-w { animation: dl-fly-wobble 3.7s ease-in-out infinite alternate; }
 .dl-fly-r { animation: dl-fly-spin 5.3s ease-in-out infinite alternate; }
 
-/* Los vilanos del hero llevan la rampa de color del logo; los de las secciones
-   se tiñen desde .drift (ver arriba) */
 .dl-flyers { stroke: url(#dl-seed-grad); color: #efe7ff; }
 
-/* --dur/--delay van en el marcado (los pone el generador); aquí solo se
-   desacompasan bamboleo y giro para que ningún par de vilanos coincida */
 :is(.dl-flyers > g, .drift > .drift-seed):nth-child(3n) .dl-fly-w { animation-duration: 4.6s; }
 :is(.dl-flyers > g, .drift > .drift-seed):nth-child(3n+1) .dl-fly-w { animation-duration: 3.1s; }
 :is(.dl-flyers > g, .drift > .drift-seed):nth-child(4n) .dl-fly-w { animation-duration: 5.2s; }
 :is(.dl-flyers > g, .drift > .drift-seed):nth-child(4n+1) .dl-fly-r { animation-duration: 4.1s; }
 :is(.dl-flyers > g, .drift > .drift-seed):nth-child(5n) .dl-fly-r { animation-duration: 6.4s; }
 :is(.dl-flyers > g, .drift > .drift-seed):nth-child(7n) .dl-fly-r { animation-duration: 5.9s; }
-/* En móvil vuela la mitad de los del hero: son 4 animaciones anidadas por vilano */
+
 @media (max-width: 59.99em) {
 	.dl-flyers > g:nth-child(2n) { display: none; }
 }
 
-/*
- * Viento: el vaivén ya no cruza el cero — la planta vive inclinada a la derecha
- * (hacia donde vuelan los vilanos) y solo cede más o menos según la racha.
- */
 @keyframes dl-sway {
 	0%, 100% { transform: rotate(3.2deg); }
 	38% { transform: rotate(4.4deg); }
@@ -619,7 +524,7 @@ a:focus-visible {
 	from { transform: rotate(-38deg); }
 	to { transform: rotate(46deg); }
 }
-/* Cada sección pausa lo suyo mientras no está en pantalla (clase desde main.js) */
+
 .is-offscreen .dandelion, .is-offscreen .dandelion *,
 .is-offscreen .drift, .is-offscreen .drift * { animation-play-state: paused; }
 
@@ -632,13 +537,7 @@ a:focus-visible {
 @media (min-width: 40em) {
 	.dandelion { height: 112%; right: -1em; opacity: 0.72; }
 }
-/*
- * Desktop: la foto de la doctora pasa a ser el elemento de impacto, a la
- * izquierda; el diente de león ya no se espeja — se queda anclado a la
- * derecha (misma posición que trae desde los 40em) y vive detrás del texto,
- * no como pieza aparte. .hero-photo sigue después de .hero-copy en el HTML
- * (así en móvil cae debajo del texto); aquí solo se reordena con `order`.
- */
+
 @media (min-width: 60em) {
 	.hero-inner {
 		max-width: var(--container);
@@ -658,11 +557,6 @@ a:focus-visible {
 	}
 }
 
-/* ---------- Sobre Mí ----------
- * Antes eran cuatro tarjetas al mismo volumen, así que nada destacaba. Ahora
- * la doctora es el bloque principal y las credenciales bajan a material de
- * apoyo: misma información, jerarquía real.
- */
 .about-feature { display: grid; gap: 1.75em; }
 .about-portrait {
 	width: 100%;
@@ -671,20 +565,11 @@ a:focus-visible {
 	border-radius: var(--radius);
 }
 
-/*
- * Las tres fotos vienen de sesiones distintas (luz verde de ventana, blanco
- * clínico frío, madera cálida) y juntas se leían como banco de imágenes. Una
- * misma corrección leve las empareja sin retocar los archivos: es solo CSS,
- * así que se revierte borrando esta regla. No se aplica al logo (es línea, no
- * foto) ni a los chips de pago (son marcas de terceros).
- */
 .about-portrait,
 .about-block img { filter: saturate(0.85) sepia(0.06) contrast(1.02); }
 .about-name { font-size: clamp(1.35em, 2vw + 0.8em, 1.75em); margin-bottom: 0.5em; }
 .about-bio { color: var(--fg); max-width: 42em; }
 
-/* Etiqueta de credencial: en versalitas espaciadas pesa mucho menos que un
-   título, que es justo lo que se busca — acompañar, no competir. */
 .about-label {
 	font-family: var(--font);
 	font-size: 0.72em;
@@ -715,8 +600,7 @@ a:focus-visible {
 	padding-top: var(--space-md);
 	border-top: 1px solid var(--border);
 }
-/* Banda panorámica, no fotografía protagonista: aquí lo que importa son las
-   cédulas y los consejos que certifican, no la foto de apoyo. */
+
 .about-block img {
 	width: 100%;
 	aspect-ratio: 5 / 2;
@@ -725,22 +609,14 @@ a:focus-visible {
 }
 .about-block .about-label { margin-top: 1.25em; }
 
-/* El retrato pasa a dos columnas pronto (40em): apilado a todo lo ancho de una
-   tablet ocupaba pantalla entera y desbalanceaba la sección. */
 @media (min-width: 40em) {
 	.about-feature { grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: 3em; align-items: start; }
 }
-/* Las credenciales esperan a los 48em: su texto es largo y en dos columnas
-   estrechas se picaría demasiado. */
+
 @media (min-width: 48em) {
 	.about-support { grid-template-columns: repeat(2, 1fr); gap: 3em; }
 }
 
-/* ---------- Servicios ----------
- * Lista editorial en vez de rejilla de tarjetas: seis recuadros blancos
- * idénticos leían como catálogo de plantilla. Cada servicio es una fila
- * separada por hairline — el mismo lenguaje que ya usa Contacto.
- */
 .service-list {
 	margin-top: var(--space-md);
 	border-top: 1px solid var(--border-on-light);
@@ -757,7 +633,7 @@ a:focus-visible {
 	width: 1.5em;
 	height: 1.5em;
 	color: var(--accent3);
-	margin-top: 0.15em;   /* alinea el ícono con la línea base del título */
+	margin-top: 0.15em;
 }
 .service-main { grid-column: 2; }
 .service-main p { margin-bottom: 0; max-width: 42em; }
@@ -774,8 +650,6 @@ a:focus-visible {
 	background: var(--accent-green);
 }
 
-/* Precios: en móvil van bajo la descripción; en desktop se alinean a la
-   derecha, que es donde el ojo los busca en una lista de servicios. */
 .service-price { grid-column: 2; }
 .service-price-label {
 	font-size: 0.72em;
@@ -784,10 +658,7 @@ a:focus-visible {
 	color: var(--fg-on-light-muted);
 	margin-bottom: 0.5em;
 }
-/* Rejilla de dos columnas (display: contents disuelve los <div> de cada par)
-   para que todas las cifras queden alineadas entre sí. En móvil se agrupa a la
-   izquierda: pegadas al borde derecho quedaban tapadas por los botones
-   flotantes de teléfono/WhatsApp, justo sobre el dato más importante. */
+
 .service-price dl {
 	display: grid;
 	grid-template-columns: auto auto;
@@ -808,20 +679,13 @@ a:focus-visible {
 	.service-item { grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 2.5em; }
 	.service-price { grid-column: 3; grid-row: 1; }
 }
-/* La alineación a la derecha espera a los 60em, que es exactamente donde se
-   ocultan los botones flotantes (.float-actions). Antes de ese ancho las
-   cifras quedarían debajo de ellos. */
+
 @media (min-width: 60em) {
 	.service-price-label { text-align: right; }
 	.service-price dl { justify-content: end; }
 	.service-price dd { text-align: right; }
 }
 
-/* ---------- Galería ----------
- * Carrusel infinito: el track no usa clones ni índices — al avanzar mueve su
- * primer elemento al final (y al revés para atrás), así nunca hay principio ni
- * fin que alcanzar. Ver assets/js/main.js.
- */
 .section-alt { background: var(--bg-alt); }
 
 .gallery {
@@ -830,14 +694,9 @@ a:focus-visible {
 	margin: var(--space-md) auto 0;
 	padding: 0 1.25em;
 }
-/* Sin JS el carrusel no puede rotar, así que el viewport queda como una tira
-   desplazable con el dedo y las flechas —que no harían nada— no se muestran. */
+
 .gallery-viewport { overflow-x: auto; scroll-snap-type: x mandatory; }
-/* El snap se apaga junto con el scroll: es parte del mismo fallback sin JS.
-   Dejarlo puesto rompía la rotación — al mover el primer elemento al final, el
-   snap obligatorio perseguía a ese elemento y desplazaba el viewport hasta el
-   final (scrollLeft 0 → 1140), así que en pantalla se saltaba una página
-   entera (1,2,3 → 4,5,6) en vez de un solo elemento. */
+
 .gallery[data-gallery-ready] .gallery-viewport { overflow: hidden; scroll-snap-type: none; }
 .gallery-item { scroll-snap-align: start; }
 .gallery-nav { display: none; }
@@ -845,8 +704,6 @@ a:focus-visible {
 .gallery-track {
 	display: flex;
 	gap: 1em;
-	/* Sin transición por defecto: la pone el JS solo al animar, para poder
-	   reacomodar los elementos sin que se vea el salto. */
 	will-change: transform;
 }
 .gallery-item { flex: 0 0 100%; }
@@ -860,8 +717,7 @@ a:focus-visible {
 	background: var(--bg-card);
 	display: block;
 }
-/* Los videos se comportan igual que las fotos; solo se les deja el control
-   nativo y se pausan al salir de vista (lo hace el JS). */
+
 .gallery-item--video video { cursor: pointer; }
 
 .gallery-nav {
@@ -896,18 +752,6 @@ a:focus-visible {
 	.gallery-next { right: -0.4em; }
 }
 
-/* ---------- Testimonios ----------
- * Mismo carrusel que #galeria (.gallery/.gallery-track/.gallery-item, ver
- * arriba) — solo cambia lo que va dentro de cada .gallery-item. .testimonial
- * se estira a la altura de la tarjeta más alta de su fila (el track ya hace
- * flex/stretch) y queda en columna para que el footer no quede "flotando"
- * cuando la reseña de al lado es más larga. */
-/* Las flechas del carrusel flotan sobre el propio contenido en todos los
-   anchos (igual que en la Galería, donde flotan sobre la foto); ahí no
-   estorban, pero aquí taparían palabras. Este padding deja el texto fuera de
-   su radio sin tocar el borde superior, que sigue de punta a punta. El valor
-   cambia porque las flechas también cambian de posición/tamaño en 60em (ver
-   .gallery-prev/.gallery-next/.gallery-nav más abajo). */
 .testimonial {
 	height: 100%;
 	display: flex;
@@ -920,9 +764,7 @@ a:focus-visible {
 }
 .testimonial-stars { display: flex; gap: 0.2em; color: var(--accent-green-light); margin-bottom: 0.85em; }
 .testimonial-stars .icon { width: 1.05em; height: 1.05em; }
-/* La cita en serif, como los títulos: es la pieza de contenido que más se
-   beneficia de un trazo editorial en vez de la sans utilitaria del cuerpo.
-   flex: 1 empuja el footer al fondo de la tarjeta sin importar el largo. */
+
 .testimonial blockquote {
 	flex: 1;
 	margin: 0 0 1em;
@@ -934,8 +776,7 @@ a:focus-visible {
 }
 .testimonial footer { font-size: 0.9em; color: var(--fg-light); }
 .testimonial cite { font-style: normal; font-weight: 600; color: var(--fg-bold); }
-/* Cada cita enlaza a su reseña puntual en Google — no a un perfil genérico —
-   así cualquiera puede verificarla con un clic. Se marca como enlace real. */
+
 .testimonial-source {
 	margin-left: 0.4em;
 	color: var(--fg-light);
@@ -943,9 +784,6 @@ a:focus-visible {
 }
 .testimonial-source:hover { color: var(--accent3-light); border-color: var(--accent3-light); }
 
-/* La sección vive sobre fondo claro (ver alternancia oscuro/claro de las
-   secciones): el blanco de --fg-bold/--fg-light se volvería invisible, así
-   que se reusan los mismos tokens "on-light" que ya usa Servicios. */
 .section-light .testimonial { border-color: var(--border-on-light); }
 .section-light .testimonial-stars { color: var(--accent-green); }
 .section-light .testimonial blockquote,
@@ -959,8 +797,6 @@ a:focus-visible {
 
 .testimonials-cta { margin-top: var(--space-lg); }
 
-/* Las flechas del carrusel nacieron oscuras para la Galería (fondo oscuro);
-   aquí la sección es clara, así que se invierten para seguir con contraste. */
 .section-light .gallery-nav {
 	background: rgba(255, 255, 255, 0.88);
 	border-color: var(--border-on-light);
@@ -968,11 +804,6 @@ a:focus-visible {
 }
 .section-light .gallery-nav:hover { background: var(--accent3); border-color: var(--accent3); color: #fff; }
 
-/* ---------- Preguntas Frecuentes ----------
- * <details>/<summary> nativos: acordeón accesible por teclado y funcional sin
- * JS, igual que el resto del sitio. Sin .drift — es tan densa en texto como
- * Sobre Mí, y los vilanos solo estorbarían.
- */
 .faq-list {
 	margin-top: var(--space-md);
 	display: flex;
@@ -980,10 +811,7 @@ a:focus-visible {
 	gap: 0.75em;
 	max-width: 46em;
 }
-/* En desktop hay aire de sobra y ocho preguntas en una sola columna quedan
-   muy largas para escanear: dos columnas, llenado por fila (fila 1 = preguntas
-   1-2, fila 2 = 3-4...) para que el orden de lectura siga siendo natural.
-   align-items:start evita que una tarjeta abierta estire a su vecina de fila. */
+
 @media (min-width: 60em) {
 	.faq-list {
 		max-width: none;
@@ -1016,8 +844,7 @@ a:focus-visible {
 	outline-offset: 3px;
 	border-radius: var(--radius-sm);
 }
-/* Ícono +/− en CSS puro: dos barras que giran a "×" al abrir, sin agregar un
-   símbolo nuevo al sprite SVG solo para esto. */
+
 .faq-toggle-icon { position: relative; width: 1em; height: 1em; flex-shrink: 0; }
 .faq-toggle-icon::before,
 .faq-toggle-icon::after {
@@ -1036,10 +863,6 @@ a:focus-visible {
 .faq-item p { margin: 0 0 1.25em; color: var(--fg); line-height: 1.6; }
 .faq-item .contact-link { color: var(--accent3-light); }
 
-/* ---------- Contacto ----------
- * Es la sección donde la gente agenda, así que no puede tener el mismo peso
- * repartido en seis bloques iguales: agendar manda, el resto acompaña.
- */
 .contact-layout {
 	margin-top: var(--space-md);
 	display: grid;
@@ -1047,10 +870,6 @@ a:focus-visible {
 	gap: var(--space-md);
 }
 
-/* Panel de conversión: sí lleva superficie propia — aquí una caja no es
-   "de dashboard", es la que le da presencia a la acción principal. Blanco
-   sobre el fondo claro de la sección (en vez de --bg-card oscuro): un bloque
-   morado sólido desentonaba con el resto de Contacto ya en claro. */
 .contact-primary {
 	background: #fff;
 	border: 1px solid var(--border-on-light);
@@ -1074,8 +893,6 @@ a:focus-visible {
 	color: var(--fg-on-light-muted);
 }
 
-/* Teléfonos como filas grandes y tocables: son la segunda vía de conversión
-   y antes eran una línea de texto perdida entre otras cinco. */
 .contact-phones { display: flex; flex-direction: column; gap: 0.5em; }
 .contact-phones a {
 	display: flex;
@@ -1090,13 +907,10 @@ a:focus-visible {
 }
 .contact-phones a:hover { border-color: var(--accent3); background: rgba(107, 75, 189, 0.06); }
 .contact-phones .icon { width: 1.15em; height: 1.15em; color: var(--accent3); }
-/* El número no se ancla a la derecha hasta los 60em: antes de ese ancho los
-   botones flotantes de teléfono/WhatsApp caen justo encima. Mientras tanto va
-   junto a su etiqueta, con min-width para que ambos números queden alineados. */
+
 .contact-phone-label { color: var(--fg-on-light-muted); font-size: 0.9em; min-width: 6.5em; }
 .contact-phone-number { font-weight: 600; font-variant-numeric: tabular-nums; }
 
-/* Datos de apoyo: hairlines, sin caja */
 .contact-aside { display: grid; grid-template-columns: 1fr; gap: 1.5em; }
 .contact-item { padding-top: 1.25em; border-top: 1px solid var(--border); }
 .contact-item > .icon { width: 1.6em; height: 1.6em; color: var(--accent3-light); margin-bottom: 0.5em; }
@@ -1110,21 +924,14 @@ a:focus-visible {
 	border-radius: var(--radius);
 	padding: 1.75em;
 }
-/* Rejilla en vez de flex-wrap: con 13 logos el ajuste natural dejaba dos
-   huérfanos en la última fila. Columnas iguales reparten mejor y hacen que la
-   fila se lea como un sistema, no como logos apilados. */
+
 .logo-row {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(7.5em, 1fr));
 	gap: 0.85em;
 	margin-top: 1.25em;
 }
-/* Cada logo vive en el mismo "chip" (alto, fondo y radio fijos) sin importar
-   su color o proporción: así la fila deja de verse como un lote de assets de
-   fuentes distintas, y "pluxee" —gris oscuro— no se pierde contra el fondo.
-   El borde marca el chip: la tarjeta ya es blanca, así que el --surface-light
-   del chip por sí solo ya no bastaba para distinguirlo. Altura generosa: a
-   1.8em las marcas quedaban ilegibles. */
+
 .logo-row img {
 	width: 100%;
 	height: 3.4em;
@@ -1135,11 +942,6 @@ a:focus-visible {
 	padding: 0.7em 1em;
 }
 
-/* Toda la sección vive sobre fondo claro, "Agenda tu cita" y "Formas de pago"
-   incluidas (ver .contact-primary/.payments más arriba): la regla genérica
-   .section-light h3 ya les pinta el título oscuro correctamente, sin
-   necesidad de una excepción aquí. Lo demás toma los mismos tokens
-   "on-light" que ya usan Servicios y Testimonios. */
 .section-light .contact-item { border-color: var(--border-on-light); }
 .section-light .contact-item > .icon { color: var(--accent3); }
 .section-light .contact-item a { color: var(--fg-on-light); }
@@ -1151,7 +953,6 @@ a:focus-visible {
 	.contact-cta { width: auto; }
 }
 @media (min-width: 60em) {
-	/* El panel de agendar ocupa su propia columna y queda a la altura del ojo */
 	.contact-layout { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 3em; }
 	.contact-primary { align-self: start; }
 	.payments { grid-column: 1 / -1; }
@@ -1159,7 +960,6 @@ a:focus-visible {
 	.contact-phone-number { margin-left: auto; }
 }
 
-/* ---------- Footer ---------- */
 #footer {
 	padding: 2em 1.25em;
 	text-align: center;
