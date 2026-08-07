@@ -106,7 +106,7 @@
 			if (event.key === "ArrowRight") { slide(1); resetAutoplay(); }
 			else if (event.key === "ArrowLeft") { slide(-1); resetAutoplay(); }
 		});
-		var AUTOPLAY_MS = 3500;
+		var AUTOPLAY_MS = 7000;
 		var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 		var autoplayTimer = null;
 		function startAutoplay() {
